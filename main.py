@@ -5,15 +5,26 @@ import matplotlib as plt
 import user_csv
 
 def get_region_input():
-    ski_resort_list_data = user_csv.read_csv("Ski Resort List Data", 1)     #get nested list of [["region", "ski resorts", "Pass", Limited or Unlimited]]
-    input_region = input("Please enter a the state or province you want to ski: (e.g., utah, alberta, colorado): ").lower().strip()
-    valid_regions = []
-    for i in range(len(ski_resort_list_data)):
-        valid_regions.append(ski_resort_list_data[i])
-    
-    while not np.isin(input_region, valid_regions):
-        print("Invalid region. Please enter a valid state or province from the following list:")
-        input_region = input("Please enter a the state or province you want to ski: (e.g., utah, alberta, colorado): ").lower().strip()
+    resort_data = user_csv.read_csv("resorts", 1)      #gets csv of ski resort data
+    while True:
+        input_region = input("input your country here: ").capitalize().strip()     #Ask for input regions
+        valid_regions = []                                                  
+        for i in range(len(resort_data)):                      #iterates through the length of the ski resorts and indexes the locations to a valid region list
+            if(resort_data[i][4] not in valid_regions):        #removes duplicate countries from valid regions list
+                valid_regions.append(resort_data[i][4])
+
+        if(input_region == '0'):
+            print(valid_regions)
+            
+        elif(not np.isin(input_region, valid_regions)):
+            print("Invalid region. Please enter a valid state or province from the following list:")
+            print("To print a list of valid regions enter 0")
+
+        else:
+            print("valid")
+            break
+
+
     return input_region
 
 
@@ -48,7 +59,7 @@ def filter_mountains_by_region_and_pass(data, region, ski_pass):
 
 '''
 
-print("Hello World!")
+
 #Sorting Options:
     #Max runs
 #def max_runs(data):
