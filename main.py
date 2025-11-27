@@ -9,12 +9,15 @@ def get_region_input():
     while True:
         input_region = input("input your country here: ").capitalize().strip()     #Ask for input regions
         valid_regions = []                                                  
-        for i in range(len(resort_data)):                      #iterates through the length of the ski resorts and indexes the locations to a valid region list
-            if(resort_data[i][4] not in valid_regions):        #removes duplicate countries from valid regions list
+        for i in range(len(resort_data)):                           #iterates through the length of the ski resorts and indexes the locations to a valid region list
+            if(resort_data[i][4] not in valid_regions):             #removes duplicate countries from valid regions list
                 valid_regions.append(resort_data[i][4])
 
+        valid_regions.sort()                                        #alphabetize list
+
         if(input_region == '0'):
-            print(valid_regions)
+            for i in range(len(valid_regions)):                     #print nicely formatted list
+                print(f'{i} - {valid_regions[i]}')
             
         elif(not np.isin(input_region, valid_regions)):
             print("Invalid region. Please enter a valid state or province from the following list:")
