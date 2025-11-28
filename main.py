@@ -4,6 +4,8 @@ import matplotlib as plt
 
 import user_csv
 
+#test 
+
 def get_region_input():
     resort_data = user_csv.read_csv("resorts", 1)      #gets csv of ski resort data
     while True:
