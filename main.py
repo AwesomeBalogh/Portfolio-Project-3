@@ -46,49 +46,22 @@ def resorts_in_region(region):
         print(f'{i} - {resorts_list[i]}')
     return resorts_list
 
+def average_price():
+    data = user_csv.read_csv("resorts", 1)     #gets csv of ski resort data 
+    prices = []
+    for i in range(len(data)):
+            prices.append(int(data[i][6]))                  #adding valid prices to list
+
+    if len(prices) > 0:
+        average = np.average(prices)                   #using numpy to calculate average
+        print(f"The average price of lift tickets across all resorts is: €{average:.2f}")
+
+
+#Main Program
+average_price()
 input_region = get_region_input()
 resorts_in_region(input_region)
 
 
-'''
-#ask what ski pass the user has either ikon or epic 1 or 2 or 3 for both?
-def get_pass_input():
-    input_pass = input("Please enter the ski pass you have (e.g., ikon, epic, both): ").lower().strip()
-    valid_passes = ["ikon", "epic", "both"]
-    while input_pass not in valid_passes:
-        print("Invalid pass. Please enter a valid ski pass from the following list:")
-        print(", ".join(valid_passes))
-        input_pass = input("Please enter the ski pass you have (e.g., ikon, epic, none): ").lower().strip()
-    return input_pass
 
 
-#print mountains in that region that accept that pass a list of limited and a list of unlimited
-def filter_mountains_by_region_and_pass(data, region, ski_pass):
-    filtered_mountains = []
-    for row in data:
-        mountain_region = row[0] 
-        mountain_passes = row[2]
-        if mountain_region.upper() == region:
-            if ski_pass == "BOTH" or ski_pass in mountain:
-                filtered_mountains.append(row)
-                return filtered_mountains
-
-        else:
-            return ["No mountains found in that region that accept that pass"]
-
-'''
-
-
-#Sorting Options:
-    #Max runs
-#def max_runs(data):
-    
-
-    #Max vertical
-    #Max acres
-
-
-    #longest run takes mile or km input from user and converts if needed to km output and sorts by longest to shortestst
-
- 
-    #Average snowfall - Calculate the season average based on all avalible data for that resort
