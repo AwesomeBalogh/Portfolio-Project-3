@@ -168,10 +168,18 @@ def select_resort(resort_list):
 
     return resorts_list
 
-def average_price():
+def average_price(resort_list, country):
+    #turns resort_list into numpy array for easier indexing
+    resort_list = np.array(resort_list)
+    col = 1
+    avg = (resort_list[:, col].astype(float).mean())*1.63  #average price of ski resort day tickets from Euro to CAD -- As type fixes the string issue
+    print(f'The average price of a ski resort day ticket in {country} is ${avg:.2f} CAD')
+    return avg
+
+
+def print_stats():
 
     return
-
 #Main Program
 
 print('Welcome to the Ski resort database!')
@@ -183,6 +191,15 @@ while True:
         break
 
     resort_opt = print_resorts_in_country(input_country)
-    select_resort(resort_opt)
+
+    skiresortselection = input("To get the average price of the resorts in this country, type 'avg' otherwise type 'select' to select a resort: ").lower().strip()
+    
+    if skiresortselection == 'avg':
+        average_price(resort_opt, input_country)
+    elif skiresortselection == 'difficulty':
+        difficulty_stats(resort_opt)
+    elif skiresortselection =='select':
+        select_resort(resort_opt)
+
 
 print('Thank you for using our program.')       #ending message
