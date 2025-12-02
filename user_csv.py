@@ -1,3 +1,4 @@
+import numpy as np
 #read a CSV file and return it as a 2D numpy array
 def read_csv(file_name, header):
     '''
@@ -28,5 +29,4 @@ def write_csv(file_name, numpy_array, overwrite):       #for overwrite, input 'x
     
             file.write(row + '\n')                                  #write one row of the file, then make a new line to make columns
     print(f'{file_name} created sucessfuly')        
-
 
