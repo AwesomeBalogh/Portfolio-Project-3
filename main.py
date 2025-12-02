@@ -120,66 +120,58 @@ def select_resort(resort_list):
         if 0 < user_resort <= len(resort_list):
             indexnumber = resort_list[user_resort-1][1]
             print(f'You selected {resort_list[user_resort-1][0]}')
-            break
+            return indexnumber
         else:
             print("Invalid Input, please try again")
 
-    return indexnumber
-
-
-
-    '''
-    Parameters: country in list of possible countries
-
-    Returns: list of ski resorts in country
-
-    Structure:
-    Bennet can you write the docstrings for this code?  I dont fully understand it
-    thanks pookie <3
-    
-    '''
-
-    resort_data = user_csv.read_csv("resorts", 1)     #gets csv of ski resort data
-
-    resorts_list = []                                   #empty list to store resorts in the specified region
-    
-    for row in resort_data:
-        mountain_region = row[4]                        #indexing the region column
-        
-        mountain_name = row[1]                          #indexing the resort name column
-        
-        mountain_id = row[0]
-
-        if mountain_region == country:                   #checking if the resort's region matches the input region
-            resorts_list.append(mountain_name + ',' + str(mountain_id))           #adding the resort name to the list if it matches
-            
-
-    print(f"Resorts in {country}:")
-    
-    
-    
-    resorts_list.sort()                                        #alphabetize list
-
-    for i in range(len(resorts_list)):                         #print nicely formatted list
-        
-        resorts_list[i].split(',')
-        print(f'{i} - {resorts_list[i]}')
-
-
-    return resorts_list
-
 def average_price(resort_list, country):
-    #turns resort_list into numpy array for easier indexing
-    resort_list = np.array(resort_list)
+    """
+    Compute the average ski resort day ticket price in CAD.
+
+    Converts the price data (column 1) from a list of resorts to floats,
+    finds the mean, converts from EUR to CAD, prints a message, and
+    returns the average.
+
+    Parameters:
+    resort_list : list
+        List of resort records where column 1 is the price in EUR.
+    country : str
+        Country name used in the printed output.
+
+    Returns:
+    float
+        Average price in CAD.
+    """
+    
+    resort_list = np.array(resort_list)                     #convert to numpy array for easier indexing
     col = 1
     avg = (resort_list[:, col].astype(float).mean())*1.63  #average price of ski resort day tickets from Euro to CAD -- As type fixes the string issue
     print(f'The average price of a ski resort day ticket in {country} is ${avg:.2f} CAD')
     return avg
 
 
-def print_stats():
+def print_stats(indexnumber):
+    resort_data = user_csv.read_csv("resorts", 1)      #gets csv of ski resort data
+    resort_stats = user_csv.read_csv("Resort price and features", 0)
+          #gets csv of ski resort stats
+    for i in range(len(resort_data)):
+        if int(resort_data[i][0]) == indexnumber:
+            resort_name = resort_data[i][1]
+            country = resort_data[i][4]
+            season_length = resort_data[i][6]
+            vertical_drop = float(resort_stats[i][2]) - float(resort_stats[i][3])
+            num_lifts = int(resort_stats[i][8])
+            price = float(resort_stats[i][1])
+            print(indexnumber)
+            print(f'Statistics for {resort_name} in {country}:')
+            print(f'Price of Day Ticket: {price*1.63:0.2f} CAD')
+            print(f'Season Length: {season_length}')
+            print(f'Vertical Drop: {vertical_drop} meters')
+            print(f'Number of Lifts: {num_lifts}') 
+        
+        return
 
-    return
+    
 #Main Program
 
 print('Welcome to the Ski resort database!')
@@ -199,7 +191,7 @@ while True:
     elif skiresortselection == 'difficulty':
         difficulty_stats(resort_opt)
     elif skiresortselection =='select':
-        select_resort(resort_opt)
+        print_stats(select_resort(resort_opt))
 
 
 print('Thank you for using our program.')       #ending message
