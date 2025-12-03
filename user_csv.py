@@ -23,19 +23,21 @@ def write_csv(file_name, numpy_array, overwrite):       #for overwrite, input 'x
 
     for i in range(len(numpy_array)):                           #generate row of data for the CSV file
         row = []
-        for j in range(len(numpy_array[i])):                    #itterate through each index of the file and format it correctly
+        for j in range(len(numpy_array[i])):                    #itterate through each index of the file and append it to the list
             row.append(str(numpy_array[i][j]))
         
-        row = ",".join(row)
+        row = ",".join(row)         #join the elements of the list with a comma
         
         
-        file.write(row)
+        file.write(row)             #write to the new file
         
-        file.write('\n')
+        file.write('\n')            #adds newline character at the end of the row
     
     print(f'{file_name} created sucessfuly')
 
 
+#=================================================================================================================================================
+#for testing only
 #uncomment to test read.csv
 #print(read_csv('resorts',1))
 
