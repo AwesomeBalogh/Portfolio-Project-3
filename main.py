@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 import user_csv
-
+#===========================================================Function Definitions===========================================================
 def get_country_input():
         
     '''
@@ -187,9 +187,35 @@ def print_stats(indexnumber):
         
     return
 
+#===========================================================Visualization Functions===========================================================
+def hist_prices(country):
+    """
+    Show a histogram of day ticket prices (in CAD)
+    for all resorts in a given country, without using try/except.
+    """
+    resort_data = user_csv.read_csv("resorts", 1)
+    resort_stats = user_csv.read_csv("Resort price and features", 0)
+
+    prices_cad = []
+
+    for i in range(len(resort_data)):
+        if resort_data[i][4] == country:
+            price_eur = float(resort_stats[i][1])
+            price_cad = price_eur * 1.63
+            prices_cad.append(price_cad)  
+
+    plt.figure()
+    plt.hist(prices_cad, bins=10, edgecolor='black')
+    plt.title(f'Day Ticket Prices in {country}')
+    plt.xlabel('Day ticket price (CAD)')
+    plt.ylabel('Number of Resorts')
+    plt.show()
+    return
 
     
-#Main Program
+    
+    
+#===========================================================Main Program===========================================================
 
 print('Welcome to the Ski resort database!')
 
@@ -205,6 +231,8 @@ while True:
     
     if skiresortselection == 'avg':
         average_price(resort_opt, input_country)
+    elif skiresortselection == 'hist':
+        hist_prices(input_country)
     elif skiresortselection == 'difficulty':
         print('brokwn')
         #difficulty_stats(resort_opt)
