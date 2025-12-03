@@ -1,6 +1,6 @@
 import numpy as np
 
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 import user_csv
 
@@ -149,27 +149,44 @@ def average_price(resort_list, country):
     print(f'The average price of a ski resort day ticket in {country} is ${avg:.2f} CAD')
     return avg
 
-
 def print_stats(indexnumber):
-    resort_data = user_csv.read_csv("resorts", 1)      #gets csv of ski resort data
-    resort_stats = user_csv.read_csv("Resort price and features", 0)
-          #gets csv of ski resort stats
-    for i in range(len(resort_data)):
-        if int(resort_data[i][0]) == indexnumber:
-            resort_name = resort_data[i][1]
-            country = resort_data[i][4]
-            season_length = resort_data[i][6]
-            vertical_drop = float(resort_stats[i][2]) - float(resort_stats[i][3])
-            num_lifts = int(resort_stats[i][8])
-            price = float(resort_stats[i][1])
-            print(indexnumber)
-            print(f'Statistics for {resort_name} in {country}:')
-            print(f'Price of Day Ticket: {price*1.63:0.2f} CAD')
-            print(f'Season Length: {season_length}')
-            print(f'Vertical Drop: {vertical_drop} meters')
-            print(f'Number of Lifts: {num_lifts}') 
+    '''Print ski resort statistics given resort index number
+    Parameters: Index  (internal)
+    Returns: None
+    '''
+
+    resort_data = user_csv.read_csv("resorts", 1)      # gets csv of ski resort data
+    resort_stats = user_csv.read_csv("Resort price and features", 0)  # gets csv of ski resort stats
+    
+    resort_row = None
+    stats_row = None
+
+    for j, row in enumerate(resort_data):                     #They be happy I used enumerate here!!
+        if int(row[0]) == indexnumber:
+            resort_row = row
+            stats_row = resort_stats[j]
+            break
+
+    if resort_row is None:                                  # This should never run, just in case
+        print(f"No resort found.")
+        return select_resort()
+
+    resort_name = resort_row[1]
+    country = resort_row[4]
+    season_length = resort_row[6]
+
+    vertical_drop = float(stats_row[2]) - float(stats_row[3])
+    num_lifts = int(stats_row[8])
+    price = float(stats_row[1])
+
+    print(f'Statistics for {resort_name} in {country}:')
+    print(f'Price of Day Ticket: ${price*1.63:0.2f} CAD')
+    print(f'Season Length: {season_length}')
+    print(f'Vertical Drop: {vertical_drop:0.2f} meters')
+    print(f'Number of Lifts: {num_lifts}') 
         
-        return
+    return
+
 
     
 #Main Program
@@ -189,9 +206,15 @@ while True:
     if skiresortselection == 'avg':
         average_price(resort_opt, input_country)
     elif skiresortselection == 'difficulty':
-        difficulty_stats(resort_opt)
+        print('brokwn')
+        #difficulty_stats(resort_opt)
     elif skiresortselection =='select':
-        print_stats(select_resort(resort_opt))
+        index = select_resort(resort_opt)
+        print_stats(index)
 
 
 print('Thank you for using our program.')       #ending message
+
+
+#price per resort in a country scatterplot
+#bar chart of top 5 countries with most resorts

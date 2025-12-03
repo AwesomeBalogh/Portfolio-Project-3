@@ -19,14 +19,14 @@ def write_csv(file_name, numpy_array, overwrite):       #for overwrite, input 'x
 
     Returns: None
     '''
-    with open(str(file_name) + '.csv', str(overwrite)) as file:     #used with operator to ensure safe file creation
+    open(str(file_name) + '.csv', str(overwrite))     #used with operator to ensure safe file creation
 
-        for i in range(len(numpy_array)):                           #generate row of data for the CSV file
-            row = ''
-            for j in range(len(numpy_array[i])):                    #itterate through each index of the file and format it correctly
-                row += str(numpy_array[i][j]) + ','
+    for i in range(len(numpy_array)):                           #generate row of data for the CSV file
+        row = ''
+        for j in range(len(numpy_array[i])):                    #itterate through each index of the file and format it correctly
+            row += str(numpy_array[i][j]) + ','
 
     
-            file.write(row + '\n')                                  #write one row of the file, then make a new line to make columns
+        row + '\n'                                  #write one row of the file, then make a new line to make columns
     print(f'{file_name} created sucessfuly')        
 
