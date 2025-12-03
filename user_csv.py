@@ -19,14 +19,27 @@ def write_csv(file_name, numpy_array, overwrite):       #for overwrite, input 'x
 
     Returns: None
     '''
-    open(str(file_name) + '.csv', str(overwrite))     #used with operator to ensure safe file creation
+    file = open(f'{file_name}.csv', str(overwrite))
 
     for i in range(len(numpy_array)):                           #generate row of data for the CSV file
-        row = ''
+        row = []
         for j in range(len(numpy_array[i])):                    #itterate through each index of the file and format it correctly
-            row += str(numpy_array[i][j]) + ','
-
+            row.append(str(numpy_array[i][j]))
+        
+        row = ",".join(row)
+        
+        
+        file.write(row)
+        
+        file.write('\n')
     
-        row + '\n'                                  #write one row of the file, then make a new line to make columns
-    print(f'{file_name} created sucessfuly')        
+    print(f'{file_name} created sucessfuly')
 
+
+#uncomment to test read.csv
+#print(read_csv('resorts',1))
+
+#uncomment to test write.csv()
+#list = [['bennet','Jordan','Elle'],[102,203,21],[123,34,21]]
+#arr = np.array(list)
+#write_csv('test',arr ,'x')
