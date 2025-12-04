@@ -39,8 +39,7 @@ def get_country_input():
         valid_countries.sort()                                        #alphabetize list
     
     while True:
-        print('To exit the program, type -')
-        input_region = input("Input your country here: ").title().strip()     #Ask for input regions
+        input_region = input("Input your country here. (To exit the program, type 'Leave'): ").title().strip()     #Ask for input regions
         
 
         valid_countries.sort()                                        #alphabetize list
@@ -59,7 +58,6 @@ def get_country_input():
                 print("To print a list of countries, enter 0")
         
         else:
-            print("valid")                                            #aknowlage valid selection and exit the main function loop
             break
     
     return input_region
@@ -133,7 +131,7 @@ def average_price(country):
     avg = np.mean(prices_cad)
     return avg
 
-def max_difficulty(index_number):               #fix 
+def max_difficulty(index_number, country):               #fix 
     run_data = user_csv.read_csv('resort runs', 1)
 
     data = []  # use a Python list first
@@ -144,7 +142,16 @@ def max_difficulty(index_number):               #fix
 
     data = np.array(data)  # convert to NumPy at the end
 
-    print(data)    
+    beg = np.max(data[:, 1])
+
+    beg_idx =index_number[np.argmax(data[:, 1])][0] 
+
+    adv = np.max(data[:, 3])
+
+    adv_idx =index_number[np.argmax(data[:, 3])][0]
+
+    print(f'The best resort for beginners in {country} is {beg_idx}, having {beg} beginner runs.\n')
+    print(f'The best resort for advanced runs in {country} is {adv_idx}, having {adv} beginner runs.\n')
 
     return
 
@@ -247,7 +254,7 @@ print('Welcome to the Ski resort database! This code will allow you to explore s
 while True:
     input_country = get_country_input()
 
-    if(input_country == '-'):       #break out of loop for exit sequence
+    if(input_country == 'Leave'):       #break out of loop for exit sequence
         break
 
     resort_opt = print_resorts_in_country(input_country)
@@ -261,8 +268,8 @@ while True:
     elif skiresortselection == 'hist':
         hist_prices(input_country)
     elif skiresortselection == 'diff':
-        max_difficulty(resort_opt)
-        #difficulty_stats(resort_opt)
+        max_difficulty(resort_opt, input_country)
+
     elif skiresortselection =='select':
         index = select_resort(resort_opt)
         print_stats(index)

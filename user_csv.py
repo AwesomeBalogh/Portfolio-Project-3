@@ -6,8 +6,10 @@ def read_csv(file_name, header):
     Inputs: file name, header status
     Outputs: numpy array of data
     '''
+    # fix for gen from tex
     fname = f'{file_name}.csv'
     array = np.genfromtxt((open(fname)), delimiter = ",", dtype = None, skip_header = header,)       #Make CSV numpy arrays (0 to include header, 1 to skip header)      
+    #
     return array
 
 
