@@ -152,10 +152,16 @@ def average_price(country):
 
 def max_difficulty(index_number):               #fix 
     run_data = user_csv.read_csv('resort runs', 1)
-    print(run_data)
-    
-        
-        
+
+    data = []  # use a Python list first
+
+    for i in range(len(index_number)):
+        idx = index_number[i][1] - 1   # convert to 0-based
+        data.append(run_data[idx])
+
+    data = np.array(data)  # convert to NumPy at the end
+
+    print(data)    
 
     return
 
@@ -271,8 +277,8 @@ while True:
 
     elif skiresortselection == 'hist':
         hist_prices(input_country)
-    elif skiresortselection == 'difficulty':
-        print('brokwn')
+    elif skiresortselection == 'diff':
+        max_difficulty(resort_opt)
         #difficulty_stats(resort_opt)
     elif skiresortselection =='select':
         index = select_resort(resort_opt)
