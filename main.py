@@ -45,8 +45,10 @@ def get_country_input():
 
         valid_countries.sort()                                        #alphabetize list
         if(input_region == '0'):
-            for i in range(len(valid_countries)):                     #print nicely formatted list
-                print(f'{i} - {valid_countries[i]}')
+            for i in range(len(valid_countries)):
+
+                print(f'{i} - {valid_countries[i]}')     
+                
 
         elif(not np.isin(input_region, valid_countries)):             #print error message if input is not valid
             
@@ -62,22 +64,6 @@ def get_country_input():
     
     return input_region
 
-
-    data = user_csv.read_csv("resorts", 1)             #gets csv of ski resort data             
-    
-    rows = []
-    
-    for i in range(len(data)):
-        if data[i][4] == country:
-            rows.append(data[i])
-    print(rows)
-    '''
-    Parameters: country
-    read CSV file for resorts
-    ???
-
-    '''
-    return rows
 
 def print_resorts_in_country(country):
     '''
@@ -148,6 +134,15 @@ def average_price(resort_list, country):
     avg = (resort_list[:, col].astype(float).mean())*1.63  #average price of ski resort day tickets from Euro to CAD -- As type fixes the string issue
     print(f'The average price of a ski resort day ticket in {country} is ${avg:.2f} CAD')
     return avg
+
+def max_difficulty(index_number):               #fix 
+    run_data = user_csv.read_csv('resort runs', 1)
+    print(run_data)
+    
+        
+        
+
+    return
 
 def print_stats(indexnumber):
     '''Print ski resort statistics given resort index number
@@ -233,9 +228,8 @@ while True:
         average_price(resort_opt, input_country)
     elif skiresortselection == 'hist':
         hist_prices(input_country)
-    elif skiresortselection == 'difficulty':
-        print('brokwn')
-        #difficulty_stats(resort_opt)
+    elif skiresortselection == 'diff':
+        max_difficulty(resort_opt)
     elif skiresortselection =='select':
         index = select_resort(resort_opt)
         print_stats(index)
