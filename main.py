@@ -65,6 +65,22 @@ def get_country_input():
     return input_region
 
 
+    data = user_csv.read_csv("resorts", 1)             #gets csv of ski resort data             
+    
+    rows = []
+    
+    for i in range(len(data)):
+        if data[i][4] == country:
+            rows.append(data[i])
+    print(rows)
+    '''
+    Parameters: country
+    read CSV file for resorts
+    ???
+
+    '''
+    return rows
+
 def print_resorts_in_country(country):
     '''
     input country
@@ -80,8 +96,6 @@ def print_resorts_in_country(country):
         if country == resort_data[i][4]:                                    #If the country is in the list, add the ID and name of the resort to the list
             resort_list.append(resort_ID)
             
-
-        
     resort_list.sort()                                                      #alphabetize the list
 
     print(f'resorts in {country}')
@@ -110,7 +124,7 @@ def select_resort(resort_list):
         else:
             print("Invalid Input, please try again")
 
-def average_price(resort_list, country):
+def average_price(country):
     """
     Compute the average ski resort day ticket price in CAD.
 
@@ -119,20 +133,21 @@ def average_price(resort_list, country):
     returns the average.
 
     Parameters:
-    resort_list : list
-        List of resort records where column 1 is the price in EUR.
-    country : str
+    Country : str
         Country name used in the printed output.
-
     Returns:
     float
         Average price in CAD.
     """
-    
-    resort_list = np.array(resort_list)                     #convert to numpy array for easier indexing
-    col = 1
-    avg = (resort_list[:, col].astype(float).mean())*1.63  #average price of ski resort day tickets from Euro to CAD -- As type fixes the string issue
-    print(f'The average price of a ski resort day ticket in {country} is ${avg:.2f} CAD')
+    resort_data = user_csv.read_csv("resorts", 1)      # gets csv of ski resort data
+    resort_stats = user_csv.read_csv("Resort price and features", 0)  # gets csv of ski resort stats
+    prices_cad = []
+    for i in range(len(resort_data)):
+        if resort_data[i][4] == country:
+            price_eur = float(resort_stats[i][1])
+            prices_cad.append(price_eur*1.63) # Convert EUR to CAD
+
+    avg = np.mean(prices_cad)
     return avg
 
 def max_difficulty(index_number):               #fix 
@@ -207,12 +222,38 @@ def hist_prices(country):
     plt.show()
     return
 
+def scatter_price_vs_lifts(country):
+    """
+    Show a scatter plot of day ticket prices (in CAD)
+    vs number of lifts for all resorts in a given country.
+    """
+    resort_data = user_csv.read_csv("resorts", 1)
+    resort_stats = user_csv.read_csv("Resort price and features", 0)
+
+    prices_cad = []
+    num_lifts = []
+
+    for i in range(len(resort_data)):
+        if resort_data[i][4] == country:
+            price_eur = float(resort_stats[i][1])
+            price_cad = price_eur * 1.63
+            lifts = int(resort_stats[i][8])
+            prices_cad.append(price_cad)
+            num_lifts.append(lifts)
+
+    plt.figure()
+    plt.scatter(num_lifts, prices_cad)
+    plt.title(f'Day Ticket Prices vs Number of Lifts in {country}')
+    plt.xlabel('Number of Lifts')
+    plt.ylabel('Day Ticket Price (CAD)')
+    plt.show()
+    return
     
     
     
 #===========================================================Main Program===========================================================
 
-print('Welcome to the Ski resort database!')
+print('Welcome to the Ski resort database! This code will allow you to explore ski resorts around the world!')   #welcome message
 
 while True:
     input_country = get_country_input()
@@ -225,11 +266,14 @@ while True:
     skiresortselection = input("To get the average price of the resorts in this country, type 'avg' otherwise type 'select' to select a resort: ").lower().strip()
     
     if skiresortselection == 'avg':
-        average_price(resort_opt, input_country)
+        avg = average_price(input_country)
+        print(f'The average price of a ski resort day ticket in {input_country} is ${avg:.2f} CAD')
+
     elif skiresortselection == 'hist':
         hist_prices(input_country)
-    elif skiresortselection == 'diff':
-        max_difficulty(resort_opt)
+    elif skiresortselection == 'difficulty':
+        print('brokwn')
+        #difficulty_stats(resort_opt)
     elif skiresortselection =='select':
         index = select_resort(resort_opt)
         print_stats(index)
