@@ -64,23 +64,6 @@ def get_country_input():
     
     return input_region
 
-
-    data = user_csv.read_csv("resorts", 1)             #gets csv of ski resort data             
-    
-    rows = []
-    
-    for i in range(len(data)):
-        if data[i][4] == country:
-            rows.append(data[i])
-    print(rows)
-    '''
-    Parameters: country
-    read CSV file for resorts
-    ???
-
-    '''
-    return rows
-
 def print_resorts_in_country(country):
     '''
     input country
@@ -283,10 +266,8 @@ while True:
     elif skiresortselection =='select':
         index = select_resort(resort_opt)
         print_stats(index)
+    elif skiresortselection == 'scatter':
+        scatter_price_vs_lifts(input_country)
 
 
 print('Thank you for using our program.')       #ending message
-
-
-#price per resort in a country scatterplot
-#bar chart of top 5 countries with most resorts
