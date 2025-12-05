@@ -142,7 +142,7 @@ def print_max_difficulty(index_number, country):
     adv_idx =index_number[np.argmax(data[:, 3])][0]
 
     print(f'\nThe best resort for beginners in {country} is {beg_idx}, having {beg} beginner runs.\n')
-    print(f'The best resort for advanced runs in {country} is {adv_idx}, having {adv} beginner runs.\n')
+    print(f'The best resort for advanced skiers in {country} is {adv_idx}, having {adv} advanced runs.\n')
     
     return beg, adv, beg_idx, adv_idx, country
 
@@ -281,7 +281,7 @@ while True:
         "Histogram  - Displays a histogram of the day ticket price by the number of resorts in the country.\n"
         "Difficulty - resort with maximum difficulty\n"
         "Scatter    - price vs number of lifts scatter plot\n"
-        "To return to Country selection, enter '-'\n"
+        "To return to Country selection, enter 'Leave'\n"
         "\nEnter selection: "
         ).lower().strip()
 
