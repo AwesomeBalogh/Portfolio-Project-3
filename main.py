@@ -57,7 +57,7 @@ def print_resorts_in_country(country):
     resort_list = []
 
     for i in range(len(resort_data)):    
-        resort_ID = [str(resort_data[i][1]), int(resort_data[i][0])]        #structure resorts to have the ID number and the name
+        resort_ID = [str(resort_data[i][1]), float(resort_data[i][0])]        #structure resorts to have the ID number and the name
         if country == resort_data[i][4]:                                    #If the country is in the list, add the ID and name of the resort to the list
             resort_list.append(resort_ID)
             
@@ -130,7 +130,7 @@ def print_max_difficulty(index_number, country):
     data = []  # use a Python list first
 
     for i in range(len(index_number)):
-        idx = index_number[i][1] - 1   # convert to 0-based
+        idx = int(index_number[i][1] - 1)   # convert to 0-based
         data.append(run_data[idx])
 
     data = np.array(data)  # convert to NumPy at the end
@@ -143,8 +143,8 @@ def print_max_difficulty(index_number, country):
 
     adv_idx =index_number[np.argmax(data[:, 3])][0]
 
-    print(f'\nThe best resort for beginners in {country} is {beg_idx}, having {beg} beginner runs.\n')
-    print(f'The best resort for advanced skiers in {country} is {adv_idx}, having {adv} advanced runs.\n')
+    print(f'\nThe best resort for beginners in {country} is {beg_idx}, having {int(beg)} beginner runs.\n')
+    print(f'The best resort for advanced skiers in {country} is {adv_idx}, having {int(adv)} advanced runs.\n')
     
     return beg, adv, beg_idx, adv_idx, country
 

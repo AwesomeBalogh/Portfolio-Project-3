@@ -16,17 +16,15 @@ def read_csv(file_name, header):
     
         refined_csv = []
 
-        int_char = ['0','1','2','3','4','5','6','7','8','9']
+        int_char = ['.','0','1','2','3','4','5','6','7','8','9']
 
         for i in range(len(raw_csv)- header):       #for every string from splitting by newline, split it further by the commas and append it to a new CSV
             row = (raw_csv[i + header].split(','))
             for j in range(len(row)):
                 for z in range(len(int_char)):
-                    if '.' in str(row[j]):
-                        row[j] = float(row[j])
-
                     if (str(int_char[z]) in str(row[j])):
-                        row[j] = int(row[j])
+                        row[j] = float(row[j])
+                    
 
             refined_csv.append(row)                 #append each resorts row to a list
 
@@ -66,11 +64,11 @@ def write_csv(file_name, numpy_array, overwrite):       #for overwrite, input 'x
 #for testing only
 
 #uncomment to test read.csv
-#print(read_csv('resorts', 1))
+#print(read_csv('resort runs', 1))
 
 
 
 #uncomment to test write.csv()
-#list = [['bennet','Jordan','Elle'],[102,203,21],[123,34,21]]
+#list = [['Paint Jars','Magnet Tiles','Legos'],[102,203,21],[123,34,21]]
 #arr = np.array(list)
 #write_csv('test',arr ,'x')
