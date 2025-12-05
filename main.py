@@ -5,28 +5,9 @@ import matplotlib.pyplot as plt
 import user_csv
 #===========================================================Function Definitions===========================================================
 def get_country_input():
-        
-    '''
+    ''' Gets user input for country, and displays valid countries if requested. 
     Parameters: none
-
     Return: input country
-
-    Structure:
-    Read resorts.csv
-        Make a list of all of the valid countries, filtering out duplicate countries
-        Sort countries by alphabetical order
-    
-    if(input region == '0'): 
-        Print a list of valid countries and repropmpt for user input
-
-    elif(input region not in valid countries list):
-        Print error and option to print valid country list
-        reprompt for user intput
-
-    else:
-        break the loop in funtion
-    
-    
     '''
 
     resort_data = user_csv.read_csv("resorts", 1)      #gets csv of ski resort data
@@ -40,17 +21,13 @@ def get_country_input():
     
     while True:
         input_region = input("Input your country here. (To exit the program, type 'Leave'): ").title().strip()     #Ask for input regions
-        
-
         valid_countries.sort()                                        #alphabetize list
         if(input_region == '0'):
             for i in range(len(valid_countries)):
-
                 print(f'{i} - {valid_countries[i]}')     
                 
 
-        elif(not np.isin(input_region, valid_countries)):             #print error message if input is not valid
-            
+        elif(not np.isin(input_region, valid_countries)):             #print error message if input is not valid  
             if(input_region == '-'):                                  #check for exit condition
                 break
             else:
@@ -71,19 +48,25 @@ def print_resorts_in_country(country):
 
     resort_list = []
 
-    for i in range(len(resort_data)):
-        
+    for i in range(len(resort_data)):    
         resort_ID = [str(resort_data[i][1]), int(resort_data[i][0])]        #structure resorts to have the ID number and the name
         if country == resort_data[i][4]:                                    #If the country is in the list, add the ID and name of the resort to the list
             resort_list.append(resort_ID)
             
     resort_list.sort()                                                      #alphabetize the list
 
-    print(f'resorts in {country}')
-    print('Resort Number - Resort Name')
-    for j in range(len(resort_list)):                                       #print list of restorts
-        
-        print(f'{j+1} - {resort_list[j][0]}')
+    print(f'\nHere are the resorts in {country}:\n')
+
+    #for j in range(len(resort_list)):                                       #print list of restorts OLD
+    #    print(f'{j+1} - {resort_list[j][0]}')
+
+    for i in range(0, len(resort_list), 3):                     #print 3 resorts per line  JORDAN LMK if you like this, some resorts have very long names though!!    
+        print(
+            f"{i+1:2d} - {resort_list[i][0]:35s}"
+            + (f"{i+2:2d} - {resort_list[i+1][0]:35s}" if i+1 < len(resort_list) else "")
+            + (f"{i+3:2d} - {resort_list[i+2][0]:35s}" if i+2 < len(resort_list) else "")
+            )
+    print()  # Add an extra newline for better readability
 
     return resort_list
 
@@ -249,7 +232,23 @@ def scatter_price_vs_lifts(country):
     
     
 #===========================================================Main Program===========================================================
-
+#Prints welcome message and ski resort ASCII art
+print('''\t\t      _
+                     /#\\
+                    /###\\     /\\
+                   /  ###\\   /##\\  /\\
+                  /      #\\ /####\\/##\\
+                 /  /      /   # /  ##\\             _       /\\
+               // //  /\\  /    _/  /  #\\ _         /#\\    _/##\\    /\\
+              // /   /  \\     /   /    #\\ \\      _/###\\_ /   ##\\__/ _\\
+             /  \\   / .. \\   / /   _   { \\ \\   _/       / //    /    \\
+     /\\     /    /\\  ...  \\_/   / / \\   } \\ | /  /\\  \\ /  _    /  /    \\ /\\
+  _ /  \\  /// / .\\  ..%:.  /... /\\ . \\ {:  \\   /. \\     / \\  /   ___   /  \\
+ /.\\ .\\.\\// \\/... \\.::::..... _/..\\ ..\\:|:. .  / .. \\  /.. \\    /...\\ /  \\ \\
+/...\\.../..:.\\. ..:::::::..:..... . ...\\{:... / %... \\/..%. \\  /./:..\\__   \\
+ .:..\\:..:::....:::;;;;;;::::::::.:::::.\\}.....::%.:. \\ .:::. \\/.%:::.:..\\
+::::...:::;;:::::;;;;;;;;;;;;;;:::::;;::{:::::::;;;:..  .:;:... ::;;::::..
+;;;;:::;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;];;;;;;;;;;::::::;;;;:.::;;;;;;;;:..\n''')
 print('Welcome to the Ski resort database! This code will allow you to explore ski resorts around the world!')   #welcome message
 
 while True:
@@ -260,22 +259,38 @@ while True:
 
     resort_opt = print_resorts_in_country(input_country)
 
-    skiresortselection = input("To get the average price of the resorts in this country, type 'avg' otherwise type 'select' to select a resort: ").lower().strip()
-    
-    if skiresortselection == 'avg':
-        avg = average_price(input_country)
-        print(f'The average price of a ski resort day ticket in {input_country} is ${avg:.2f} CAD')
+    menu_input = input(
+    "Choose from the following options:\n"
+    "Select     - Select a resort to view its statistics.\n"
+    "Average   - Finds the average ticket price of all resorts in this country\n"
+    "Histogram  - Displays a histogram of the day ticket price by the number of resorts in the country.\n"
+    "Difficulty - resort with maximum difficulty\n"
+    "Scatter    - price vs number of lifts scatter plot\n"
+    "\nEnter selection: "
+    ).lower().strip()
 
-    elif skiresortselection == 'hist':
+
+    #Added a bunch of other possible inputs for dummy proofing.
+
+    if menu_input in ('average','avg'):
+        avg = average_price(input_country)
+        print(f'The average price of a ski resort day ticket in {input_country} is ${avg:.2f} CAD.')
+
+    elif menu_input in ('histogram', 'hist'):
         hist_prices(input_country)
-    elif skiresortselection == 'diff':
+
+    elif menu_input in ('diff', 'difficulty'):
         max_difficulty(resort_opt, input_country)
 
-    elif skiresortselection =='select':
+    elif menu_input in ('select', 'select resort', 'resort', 'view'):
         index = select_resort(resort_opt)
+        print(index)
         print_stats(index)
-    elif skiresortselection == 'scatter':
+
+    elif menu_input  in ('scatter', 'scatter plot', 'plot', 'scat'):
         scatter_price_vs_lifts(input_country)
 
+    else:
+        print("Invalid input, please try again.")
 
 print('Thank you for using our program.')       #ending message
