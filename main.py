@@ -76,6 +76,8 @@ def print_resorts_in_country(country):
             )
     print()  # Add an extra newline for better readability
 
+    user_csv.write_csv(f'Resorts in {country}',resort_list,'x')     #write CSV for resorts in country and their ID number
+    
     return resort_list
 
 def select_resort(resort_list):
