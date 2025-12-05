@@ -119,7 +119,7 @@ def average_price(country):
     avg = np.mean(prices_cad)
     return avg
 
-def max_difficulty(index_number, country):               #fix 
+def print_max_difficulty(index_number, country):               #fix 
     run_data = user_csv.read_csv('resort runs', 1)
 
     data = []  # use a Python list first
@@ -141,7 +141,7 @@ def max_difficulty(index_number, country):               #fix
     print(f'The best resort for beginners in {country} is {beg_idx}, having {beg} beginner runs.\n')
     print(f'The best resort for advanced runs in {country} is {adv_idx}, having {adv} beginner runs.\n')
     
-    return
+    return beg, adv, beg_idx, adv_idx, country
 
 def print_stats(indexnumber):
     '''Print ski resort statistics given resort index number
@@ -262,30 +262,30 @@ while True:
         break
 
     resort_opt = print_resorts_in_country(input_country)
-
-    menu_input = input(
-    "Choose from the following options:\n"
-    "Select     - Select a resort to view its statistics.\n"
-    "Average   - Finds the average ticket price of all resorts in this country\n"
-    "Histogram  - Displays a histogram of the day ticket price by the number of resorts in the country.\n"
-    "Difficulty - resort with maximum difficulty\n"
-    "Scatter    - price vs number of lifts scatter plot\n"
-    "To return to Country selection, enter '-' "
-    "\nEnter selection: "
-    ).lower().strip()
     while len(input_country) > 0:
+        menu_input = input(
+        "Choose from the following options:\n"
+        "Select     - Select a resort to view its statistics.\n"
+        "Average   - Finds the average ticket price of all resorts in this country\n"
+        "Histogram  - Displays a histogram of the day ticket price by the number of resorts in the country.\n"
+        "Difficulty - resort with maximum difficulty\n"
+        "Scatter    - price vs number of lifts scatter plot\n"
+        "To return to Country selection, enter '-'\n"
+        "\nEnter selection: "
+        ).lower().strip()
+
         #Added a bunch of other possible inputs for dummy proofing.
 
         if menu_input in ('average','avg'):
             avg = average_price(input_country)
-            print(f'The average price of a ski resort day ticket in {input_country} is ${avg:.2f} CAD.')
+            print(f'\n The average price of a ski resort day ticket in {input_country} is ${avg:.2f} CAD.')
 
         elif menu_input in ('histogram', 'hist'):
             (input_country)
 
         elif menu_input in ('diff', 'difficulty'):
-            max_difficulty(resort_opt, input_country)
-
+            print_max_difficulty(resort_opt, input_country)
+        
         elif menu_input in ('select', 'select resort', 'resort', 'view'):
             index = select_resort(resort_opt)
             print(index)
@@ -299,6 +299,8 @@ while True:
 
         else:
             print("Invalid input, please try again.")
+
+        print('\n================================================================================================================================\n')
 
     
 
