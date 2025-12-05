@@ -141,7 +141,8 @@ def max_difficulty(index_number, country):               #fix
         data.append(run_data[idx])
 
     data = np.array(data)  # convert to NumPy at the end
-
+    print(data)
+    
     beg = np.max(data[:, 1])
 
     beg_idx =index_number[np.argmax(data[:, 1])][0] 
@@ -152,7 +153,7 @@ def max_difficulty(index_number, country):               #fix
 
     print(f'The best resort for beginners in {country} is {beg_idx}, having {beg} beginner runs.\n')
     print(f'The best resort for advanced runs in {country} is {adv_idx}, having {adv} beginner runs.\n')
-
+    
     return
 
 def print_stats(indexnumber):
@@ -168,7 +169,7 @@ def print_stats(indexnumber):
     stats_row = None
 
     for j, row in enumerate(resort_data):                     #They be happy I used enumerate here!!
-        if int(row[0]) == indexnumber:
+        if (row[0]) == indexnumber:
             resort_row = row
             stats_row = resort_stats[j]
             break
@@ -181,7 +182,7 @@ def print_stats(indexnumber):
     country = resort_row[4]
     season_length = resort_row[6]
 
-    vertical_drop = float(stats_row[2]) - float(stats_row[3])
+    vertical_drop = int(stats_row[2]) - int(stats_row[3])
     num_lifts = int(stats_row[8])
     price = float(stats_row[1])
 
@@ -233,7 +234,7 @@ def scatter_price_vs_lifts(country):
         if resort_data[i][4] == country:
             price_eur = float(resort_stats[i][1])
             price_cad = price_eur * 1.63
-            lifts = int(resort_stats[i][8])
+            lifts = (resort_stats[i][8])
             prices_cad.append(price_cad)
             num_lifts.append(lifts)
 

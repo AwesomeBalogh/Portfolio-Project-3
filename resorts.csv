@@ -43,7 +43,7 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 42,Rinerhorn (Davos Klosters),46.74122595,9.798008893,Switzerland,Europe,December - March,6900,Yes,Yes,No,No
 43,Madrisa (Davos Klosters),46.9097225,9.877450678,Switzerland,Europe,December - March,6640,Yes,Yes,No,No
 44,Jakobshorn (Davos Klosters),46.772399,9.8493406,Switzerland,Europe,December - April,15800,Yes,Yes,No,No
-45,Glacier 3000 / Les Diablerets,46.3511021,7.1566435,Switzerland,Europe,October - May,10260,Yes,Yes,No,No
+45,Les Diablerets,46.3511021,7.1566435,Switzerland,Europe,October - May,10260,Yes,Yes,No,No
 46,Big White,49.715991,-118.933872,Canada,North America,November - April,22625,Yes,Yes,Yes,No
 47,Obergurgl-Hochgurgl,46.879426,11.0387065,Austria,Europe,November - May,38861,Yes,Yes,Yes,No
 48,Coronet Peak,-44.9158907,168.7395712,New Zealand,Oceania,June - October,7200,Yes,Yes,Yes,Yes
@@ -64,15 +64,15 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 63,Le Lys - Cauterets,42.8823131,-0.1553793,France,Europe,November - April,13038,Yes,Yes,No,No
 64,Pont d'Espagne - Cauterets,42.8510114,-0.1399209,France,Europe,November - April,4150,Yes,No,No,No
 65,La Grave - La Meije,45.0454525,6.3067223,France,Europe,December - April,1460,Yes,No,No,No
-66,Courchevel (Les 3 Valle?es),45.4140984,6.6349892,France,Europe,November - May,250860,Yes,Yes,Yes,No
-67,Saint Martin de Belleville (Les 3 Valle?es),45.3503871,6.500076137,France,Europe,November - May,250860,Yes,Yes,Yes,No
+66,Courchevel ,45.4140984,6.6349892,France,Europe,November - May,250860,Yes,Yes,Yes,No
+67,Saint Martin de Belleville,45.3503871,6.500076137,France,Europe,November - May,250860,Yes,Yes,Yes,No
 68,Alpe d'Huez,45.092401,6.0699443,France,Europe,December - April,92097,Yes,Yes,Yes,No
-69,La Tania-Val Thorens/?Les Menuires/?Me?ribel (Les 3 Valle?es),45.432169,6.5963993,France,Europe,November - May,250860,Yes,Yes,Yes,No
+69,La Tania-Val Thorens/?Les Menuires/?Me?ribel,45.432169,6.5963993,France,Europe,November - May,250860,Yes,Yes,Yes,No
 70,Sainte-Foy-Tarentaise,45.590355,6.8849094,France,Europe,December - April,7100,Yes,No,No,No
 71,Les Arcs /? Peisey-Vallandry (Paradiski),43.4629097,6.4786269,France,Europe,December - April,82641,Yes,Yes,Yes,No
 72,Montgene?vre (Via Lattea),44.929277,6.729726,France,Europe,November - April,96433,Yes,No,Yes,No
 73,Bonneval sur Arc,45.3716864,7.0467945,France,Europe,December - April,8213,Yes,No,No,No
-74,Val Thorens (Les 3 Valle?es),45.2979109,6.5822693,France,Europe,November - May,250860,Yes,Yes,Yes,No
+74,Val Thorens,45.2979109,6.5822693,France,Europe,November - May,250860,Yes,Yes,Yes,No
 75,Serre Chevalier-Brianc?on/?Chantemerle/?Villeneuve-la-Salle/?Le Mone?tier-les-Bains,44.9107381,6.5500282,France,Europe,December - April,72066,Yes,Yes,Yes,No
 76,Kleine Scheidegg / ?Ma?nnlichen-Grindelwald / ?Wengen,46.5850987,7.9608968,Switzerland,Europe,November - April,29250,Yes,No,No,No
 77,Balme-?Les Autannes-Vallorcine-?Le Tour,46.2856827,4.7804099,France,Europe,December - April,14860,Yes,Yes,No,No
@@ -102,7 +102,7 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 101,Serfaus-Fiss-Ladis,47.0530324,10.61913705,Austria,Europe,December - April,78460,Yes,Yes,Yes,No
 102,Hochko?nig-Maria Alm/?Dienten/?Mu?hlbach,47.38650655,12.95641323,Austria,Europe,December - April,49232,Yes,Yes,Yes,No
 103,Mayrhofen-Penken/?Ahorn/?Rastkogel/?Eggalm,47.1672188,11.8638664,Austria,Europe,December - April,82432,Yes,Yes,No,No
-104,St. Anton (Ski Arlberg),47.18265425,10.14043361,Austria,Europe,December - April,145127,Yes,Yes,No,No
+104,St - Anton (Ski Arlberg),47.18265425,10.14043361,Austria,Europe,December - April,145127,Yes,Yes,No,No
 105,Axamer Lizum,47.1943801,11.3030187,Austria,Europe,November - April,13322,Yes,Yes,No,No
 106,Flachau (Ski amedé),47.3438501,13.3922888,Austria,Europe,November - April,75398,Yes,Yes,No,No
 107,Ski Juwel Alpbachtal Wildscho?nau,47.395203,11.92651,Austria,Europe,December - April,52789,Yes,Yes,Yes,No
@@ -113,15 +113,15 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 112,Kitzbühel / Kirchberg (KitzSki),47.4463585,12.3911473,Austria,Europe,October - April,92510,Yes,Yes,Yes,No
 113,Galtu?r,46.9194554,10.17059035,Austria,Europe,December - April,15442,Yes,Yes,Yes,No
 114,Fieberbrunn - Saalbach Hinterglemm Leogang (Skicircus),47.45518755,12.54442426,Austria,Europe,November - April,135104,Yes,Yes,Yes,No
-115,Schladming (4-Berge-Skischauke),47.3940415,13.6867878,Austria,Europe,April,71842,Yes,Yes,Yes,No
+115,Schladming,47.3940415,13.6867878,Austria,Europe,April,71842,Yes,Yes,Yes,No
 116,Ellmau (SkiWelt Wilder Kaiser-Brixental),47.51927245,12.29224775,Austria,Europe,December - April,147250,Yes,Yes,Yes,No
 117,Zauchensee,47.2933062,13.4568962,Austria,Europe,April,25988,Yes,Yes,No,No
 118,Westendorf (SkiWelt Wilder Kaiser-Brixental),47.3831879,12.22174856,Austria,Europe,December - April,147250,Yes,Yes,Yes,No
 119,Silvretta Montafon,47.03503335,9.976778589,Austria,Europe,November - April,67472,Yes,Yes,No,No
 120,Zürs (Ski Arlberg),47.194717,10.160198,Austria,Europe,December - April,145127,Yes,Yes,No,No
 121,Söll (SkiWelt Wilder Kaiser-Brixental),47.503178,12.190132,Austria,Europe,December - April,147250,Yes,Yes,Yes,No
-122,St. Johann in Tirol,47.5224141,12.4286809,Austria,Europe,December - April,21100,Yes,No,Yes,No
-123,St. Christoph (Ski Arlberg),47.022264,15.4708255,Austria,Europe,December - April,145127,Yes,Yes,No,No
+122,St - Johann in Tirol,47.5224141,12.4286809,Austria,Europe,December - April,21100,Yes,No,Yes,No
+123,St - Christoph (Ski Arlberg),47.022264,15.4708255,Austria,Europe,December - April,145127,Yes,Yes,No,No
 124,Courmayeur / Che?crouit -? Val Veny,45.7874248,6.9730618,Italy,Europe,Unknown,24497,Yes,Yes,No,No
 125,Sierra Nevada-Pradollano,37.0957512,-3.387885004,Spain,Europe,November - May,59205,Yes,Yes,Yes,No
 126,Cortina d'Ampezzo,46.5383332,12.1373506,Italy,Europe,November - April,48089,Yes,Yes,No,No
@@ -138,17 +138,17 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 137,Crans-Montana,46.3304899,7.526435804,Switzerland,Europe,November - April,29500,Yes,Yes,No,No
 138,Brunni - Engelberg,46.84087305,8.410638259,Switzerland,Europe,December - April,2577,Yes,No,No,No
 139,Arosa Lenzerheide,46.7548885,9.566024408,Switzerland,Europe,October - April,63936,Yes,Yes,Yes,No
-140,Verbier (4 Valle?es),46.1003545,7.276506393,Switzerland,Europe,December - April,85022,Yes,Yes,Yes,No
-141,St. Moritz - Corviglia,46.5079945,9.818959,Switzerland,Europe,November - April,31220,Yes,Yes,No,No
+140,Verbier,46.1003545,7.276506393,Switzerland,Europe,December - April,85022,Yes,Yes,Yes,No
+141,St - Moritz - Corviglia,46.5079945,9.818959,Switzerland,Europe,November - April,31220,Yes,Yes,No,No
 142,Gresse en Vercors,44.9011374,5.5662216,France,Europe,December - March,6808,Yes,Yes,No,No
-143,Nendaz (4 Valle?es),46.1003545,7.276506393,Switzerland,Europe,December - April,85022,Yes,Yes,Yes,No
+143,Nendaz,46.1003545,7.276506393,Switzerland,Europe,December - April,85022,Yes,Yes,Yes,No
 144,Villars -? Gryon / Les Diablerets,46.3289335,7.1096087,Switzerland,Europe,December - April,38905,Yes,Yes,No,No
-145,Thyon (4 Valle?es),46.1003545,7.276506393,Switzerland,Europe,December - April,85022,Yes,Yes,Yes,No
-146,Veysonnaz (4 Valle?es),46.1003545,7.276506393,Switzerland,Europe,December - April,85022,Yes,Yes,Yes,No
+145,Thyon,46.1003545,7.276506393,Switzerland,Europe,December - April,85022,Yes,Yes,Yes,No
+146,Veysonnaz,46.1003545,7.276506393,Switzerland,Europe,December - April,85022,Yes,Yes,Yes,No
 147,Buchenberg-Buching-Halblech-,47.606423,10.8106751,Germany,Europe,December - March,2800,Yes,No,No,No
 148,Alpendorf (Ski amedé),47.3225067,13.1954241,Austria,Europe,November - April,75398,Yes,Yes,No,No
-149,Me?ribel (Les 3 Valle?es),45.39139,6.574283,France,Europe,November - May,250860,Yes,Yes,Yes,No
-150,?Les Menuires (Les 3 Valle?es),45.322108,6.537697,France,Europe,November - May,250860,Yes,Yes,Yes,No
+149,Me?ribel,45.39139,6.574283,France,Europe,November - May,250860,Yes,Yes,Yes,No
+150,?Les Menuires,45.322108,6.537697,France,Europe,November - May,250860,Yes,Yes,Yes,No
 151,Les Sybelles-Le Corbier-?La Toussuire-?Les Bottie?res-?St Colomban des Villards-?St Sorlin-?St Jean d’Arves,45.25492475,6.248865708,France,Europe,December - April,83807,Yes,Yes,Yes,No
 152,Le Grand Massif-Flaine-?Les Carroz-?Morillon-?Samoe?ns-?Sixt,46.0298218,6.695615648,France,Europe,December - April,97624,Yes,Yes,No,No
 153,Mege?ve-?Saint-Gervais,45.845128,6.685666167,France,Europe,December - April,106362,Yes,Yes,Yes,No
@@ -160,7 +160,7 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 159,Le Grand Domaine-Valmorel-?Doucy-?Celliers-?St Franc?ois Longchamp,48.618833,-2.2673293,France,Europe,December - April,60248,Yes,Yes,No,No
 160,Galibier Thabor-Valmeinier-?Valloire,45.1604887,6.464502618,France,Europe,December - April,43300,Yes,Yes,Yes,No
 161,Zillertal Arena-Zell am Ziller-?Gerlos-?Ko?nigsleiten-?Hochkrimml,47.24372605,12.03918599,Austria,Europe,December - April,89415,Yes,Yes,No,No
-162,La Molina-?Masella-Alp2500,42.3427392,1.9562059,Spain,Europe,November - April,39750,Yes,Yes,Yes,No
+162,La Molina,42.3427392,1.9562059,Spain,Europe,November - April,39750,Yes,Yes,Yes,No
 163,Lake Louise,51.4249668,-116.177535,Canada,North America,November - May,14040,Yes,Yes,No,No
 164,Auron-Saint-Etienne-de-Tine?e-,44.2262702,6.9309839,France,Europe,December - April,25030,Yes,Yes,No,No
 165,Powder Mountain,48.8773577,-120.7676146,United States,North America,November - April,13470,Yes,Yes,Yes,No
@@ -171,9 +171,9 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 170,La Clusaz-?Manigod,45.883562,6.419691113,France,Europe,December - April,59346,Yes,Yes,Yes,No
 171,Espace Villard Correnc?on-Villard-de-Lans-?Correnc?on-en-Vercors,45.044532,5.559564,France,Europe,December - April,26600,Yes,Yes,No,No
 172,Val Cenis-Lanslevillard-?Lanslebourg-?Termignon,45.2768658,6.8170409,France,Europe,December - April,39824,Yes,Yes,Yes,No
-173,Isola 2000,44.1869246,7.145441205,France,Europe,December - April,21807,Yes,Yes,Yes,No
+173,Isola,44.1869246,7.145441205,France,Europe,December - April,21807,Yes,Yes,Yes,No
 174,Obersaxen-?Mundaun-?Val Lumnezia,46.7487613,9.1022712,Switzerland,Europe,December - April,20720,Yes,Yes,Yes,No
-175,Les 7 Laux-Prapoutel-?Le Pleynet-?Pipay,45.2602174,6.033591377,France,Europe,December - April,32232,Yes,Yes,No,No
+175,Laux-Prapoutel-?Le Pleynet-?Pipay,45.2602174,6.033591377,France,Europe,December - April,32232,Yes,Yes,No,No
 176,Corvatsch-?Furtschellas,46.4450516,9.819511761,Switzerland,Europe,November - May,18510,Yes,Yes,Yes,No
 177,Sugarloaf,38.3481772,-76.0335483,United States,North America,November - April,20720,Yes,Yes,No,No
 178,Silver Star,45.015082,-75.6437706,Canada,North America,November - April,12000,Yes,Yes,Yes,No
@@ -182,22 +182,22 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 181,Sunshine Village,51.08952535,-115.7622016,Canada,North America,November - May,20950,Yes,Yes,No,No
 182,Mondole? Ski-Artesina-?Frabosa Soprana-?Prato Nevoso,44.249446,7.775081,Italy,Europe,Unknown,26068,Yes,Yes,Yes,No
 183,Aletsch Arena-Riederalp-?Bettmeralp-?Fiesch Eggishorn,46.3895305,8.0609271,Switzerland,Europe,December - April,41109,Yes,Yes,Yes,No
-184,Bad Kleinkirchheim-?St. Oswald,46.8442215,13.7662406,Austria,Europe,December - April,31186,Yes,Yes,Yes,No
+184,Bad Kleinkirchheim-?St - Oswald,46.8442215,13.7662406,Austria,Europe,December - April,31186,Yes,Yes,Yes,No
 185,Snowbird,40.5807546,-111.6572955,United States,North America,November - May,17900,Yes,Yes,Yes,No
 186,Bardonecchia,45.078339,6.703205,Italy,Europe,December - April,27588,Yes,Yes,No,No
 187,Saint-Lary-Soulan,42.816936,0.3219538,France,Europe,December - April,38733,Yes,Yes,Yes,No
-188,Orcie?res Merlette 1850,44.6972064,6.3235516,France,Europe,December - April,29605,Yes,Yes,No,No
+188,Orcie?res MerletteS,44.6972064,6.3235516,France,Europe,December - April,29605,Yes,Yes,No,No
 189,De?voluy-Superde?voluy-?La Joue du Loup,44.68440895,5.898484198,France,Europe,December - April,27646,Yes,Yes,No,No
 190,Grand Tourmalet-?Pic du Midi-La Mongie-?Bare?ges,42.9087613,0.1674113,France,Europe,November - April,40231,Yes,Yes,No,No
-191,Mt. Rose,40.369273,-74.7390499,United States,North America,November - April,15000,Yes,Yes,No,No
-192,Mt. Buller,-37.2694615,146.4008688,Australia,Oceania,May - October,33600,Yes,Yes,Yes,Yes
-193,Mt. Baker,48.7767701,-121.814566,United States,North America,November - May,15500,Yes,Yes,No,No
+191,Mt - Rose,40.369273,-74.7390499,United States,North America,November - April,15000,Yes,Yes,No,No
+192,Mt - Buller,-37.2694615,146.4008688,Australia,Oceania,May - October,33600,Yes,Yes,Yes,Yes
+193,Mt - Baker,48.7767701,-121.814566,United States,North America,November - May,15500,Yes,Yes,No,No
 194,Alpine Meadows,39.1785177,-120.2276948,United States,North America,November - April,16200,Yes,Yes,No,No
 195,Deer Valley,48.1815678,-117.3007731,United States,North America,December - April,46600,Yes,No,No,No
 196,Perisher,-36.3961667,148.408582,Australia,Oceania,June - October,46975,Yes,Yes,Yes,Yes
 197,Wolf Creek,42.6955158,-123.3952995,United States,North America,November - April,11200,Yes,No,No,No
 198,Wenatchee-Mission Ridge,47.4234599,-120.310349,United States,North America,November - April,4910,Yes,No,Yes,No
-199,Mt. Bachelor,43.9792818,-121.688365,United States,North America,November - May,25900,Yes,Yes,No,No
+199,Mt - Bachelor,43.9792818,-121.688365,United States,North America,November - May,25900,Yes,Yes,No,No
 200,Northstar California Resort,39.274701,-120.12192,United States,North America,November - April,28002,Yes,Yes,No,No
 201,Parsenn (Davos Klosters),46.842102,9.835342208,Switzerland,Europe,November - April,26795,Yes,Yes,No,No
 202,Schweitzer Mountain Resort,48.368467,-116.623291,United States,North America,November - April,14200,Yes,Yes,Yes,No
@@ -213,12 +213,12 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 212,Alto Sangro-Roccaraso-?Rivisondoli,41.848167,14.079594,Italy,Europe,December - April,36602,Yes,No,No,No
 213,Chamrousse,45.1171487,5.893161879,France,Europe,December - April,24398,Yes,Yes,Yes,No
 214,Valberg-?Beuil les Launes,44.0956228,6.9301384,France,Europe,December - April,25940,Yes,Yes,No,No
-215,Mt. Hood Meadows,45.338708,-121.6655282,United States,North America,November - April,20603,Yes,Yes,Yes,No
+215,Mt - Hood Meadows,45.338708,-121.6655282,United States,North America,November - April,20603,Yes,Yes,Yes,No
 216,Sugar Bowl,42.9932326,-115.2420141,United States,North America,November - April,25544,Yes,Yes,No,No
 217,Mammoth Mountain,37.6307692,-119.032634,United States,North America,November - June,54830,Yes,Yes,No,No
 218,Telluride,37.9374939,-107.812285,United States,North America,November - April,22638,Yes,Yes,No,No
 219,Adelboden-?Lenk-Chuenisba?rgli-?Silleren-?Hahnenmoos-?Metsch,46.4927213,7.5587618,Switzerland,Europe,December - April,34620,Yes,Yes,Yes,No
-220,Rinderberg-?Saanerslochgrat-?Horneggli-Zweisimmen-?Saanenmo?ser-?Scho?nried-?St. Stephan,46.9463748,8.0499977,Switzerland,Europe,December - April,18360,Yes,Yes,Yes,No
+220,Rinderberg-?Saanerslochgrat-?Horneggli-Zweisimmen-?Saanenmo?ser-?Scho?nried-?St - Stephan,46.9463748,8.0499977,Switzerland,Europe,December - April,18360,Yes,Yes,Yes,No
 221,Sugarbush,44.5417138,-73.9698685,United States,North America,November - April,25652,Yes,Yes,No,No
 222,Graukogel-Bad Gastein,47.1110862,13.15623357,Austria,Europe,December - March,3352,Yes,No,No,No
 223,Marmot Basin-Jasper,52.8005917,-118.0833546,Canada,North America,November - April,11600,Yes,Yes,No,No
@@ -242,7 +242,7 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 241,Cerler,42.5927404,0.5384221,Spain,Europe,December - April,20670,Yes,Yes,No,No
 242,Jay Peak,47.6313713,-120.8295337,United States,North America,Unknown,11675,Yes,No,No,No
 243,Three Peaks Dolomites-Helm-?Stiergarten-?Rotwand-?Kreuzbergpass,46.731048,12.327947,Italy,Europe,November - April,21535,Yes,Yes,No,No
-244,Puy St. Vincent,44.8279543,6.4926273,France,Europe,December - April,17155,Yes,Yes,Yes,No
+244,Puy St - Vincent,44.8279543,6.4926273,France,Europe,December - April,17155,Yes,Yes,Yes,No
 245,Angel Fire,36.3930879,-105.2850091,United States,North America,December - March,7200,Yes,Yes,Yes,No
 246,Folgaria-?Fiorentini,45.9149727,11.173015,Italy,Europe,December - April,35900,Yes,Yes,No,No
 247,Titlis-Engelberg,46.8228773,8.400657035,Switzerland,Europe,October - May,23316,Yes,Yes,No,No
@@ -259,7 +259,7 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 258,Scuol-Motta Naluns,46.811169,10.2726212,Switzerland,Europe,December - April,18000,Yes,Yes,No,No
 259,Okemo,43.41769055,-72.69828454,United States,North America,November - April,29050,Yes,Yes,Yes,No
 260,Mont-Sainte-Anne-Beaupre?,47.0877219,-70.92606776,Canada,North America,November - April,13200,Yes,Yes,Yes,No
-261,49 Degrees North Mountain Resort,48.300619,-117.562991,United States,North America,November - April,8250,Yes,No,No,No
+261,North Mountain Resort,48.300619,-117.562991,United States,North America,November - April,8250,Yes,No,No,No
 262,Passo San Pellegrino-?Falcade,46.36726075,11.80236956,Italy,Europe,November - April,24030,Yes,Yes,No,No
 263,Bear Valley,37.5688237,-120.1193489,United States,North America,December - April,11800,Yes,No,No,No
 264,Apex Resort,49.3900432,-119.9047389,Canada,North America,December - April,4720,Yes,Yes,Yes,No
@@ -269,7 +269,7 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 268,Super Sauze,44.3578176,6.6855952,France,Europe,December - April,17948,Yes,Yes,No,No
 269,Bukovel,48.353783,24.41283,Ukraine,Europe,November - May,33839,Yes,Yes,Yes,No
 270,La Norma,45.1772565,6.7195145,France,Europe,December - April,13290,Yes,Yes,No,No
-271,Mt. Hood Skibowl,45.3018189,-121.7737856,United States,North America,November - April,6500,Yes,Yes,Yes,No
+271,Mt - Hood Skibowl,45.3018189,-121.7737856,United States,North America,November - April,6500,Yes,Yes,Yes,No
 272,Kirkwood,38.5800713,-90.4069177,United States,North America,November - April,21420,Yes,Yes,No,No
 273,Red Lodge Mountain,45.1907531,-109.3368732,United States,North America,November - April,10200,Yes,No,No,No
 274,Solitude,40.6202462,-111.5919046,United States,North America,November - April,16400,Yes,No,No,No
@@ -278,11 +278,11 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 277,Wildkogel-Neukirchen-?Bramberg,47.2743375,12.29774135,Austria,Europe,December - April,27388,Yes,Yes,Yes,No
 278,Alyeska Resort-Girdwood,60.96188655,-149.0808696,United States,North America,November - April,11200,Yes,No,Yes,No
 279,Hintertux Glacier,47.061277,11.665036,Austria,Europe,Year-round,38852,Yes,Yes,No,Yes
-280,Disentis 3000,46.7041748,8.8549785,Switzerland,Europe,December - April,10990,Yes,Yes,No,No
+280,Disentis,46.7041748,8.8549785,Switzerland,Europe,December - April,10990,Yes,Yes,No,No
 281,Belalp-Blatten,46.3648823,7.9796899,Switzerland,Europe,December - April,13640,Yes,Yes,No,No
 282,San Martino di Castrozza,46.2623377,11.802828,Italy,Europe,November - April,29859,Yes,Yes,Yes,No
 283,Meiringen-Hasliberg,46.7468975,8.219472173,Switzerland,Europe,December - April,16381,Yes,No,Yes,No
-284,Toggenburg-Wildhaus-?Unterwasser-?Alt St. Johann,47.180949,9.32019222,Switzerland,Europe,December - April,19956,Yes,Yes,Yes,No
+284,Toggenburg-Wildhaus-?Unterwasser-?Alt St - Johann,47.180949,9.32019222,Switzerland,Europe,December - April,19956,Yes,Yes,Yes,No
 285,Alpe di Siusi-Seiser Alm-,46.5639036,11.60457618,Italy,Europe,December - April,35624,Yes,Yes,No,No
 286,Le Lioran,45.0912003,2.7503788,France,Europe,December - April,25195,Yes,Yes,Yes,No
 287,Saint Luc-?Chandolin-Anniviers-,46.236536,7.627631245,Switzerland,Europe,December - April,10350,Yes,Yes,No,No
@@ -297,7 +297,7 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 296,Eggli-?La Videmanette-Gstaad-?Saanen-?Rougemont,47.291778,9.1733641,Switzerland,Europe,December - March,15363,Yes,No,No,No
 297,Anze?re,46.2970711,7.3989488,Switzerland,Europe,December - April,12462,Yes,Yes,No,No
 298,Borovets,42.2668301,23.6074324,Bulgaria,Europe,December - April,15800,Yes,Yes,Yes,No
-299,Font-Romeu-?Bolque?re Pyre?ne?es 2000,42.5043981,2.0715162,France,Europe,December - April,27378,Yes,Yes,No,No
+299,Font-Romeu-?Bolque?re Pyre?ne?es,42.5043981,2.0715162,France,Europe,December - April,27378,Yes,Yes,No,No
 300,Oppdal,62.53517845,9.62330412,Norway,Europe,Unknown,0,Yes,No,No,No
 301,Bre?vent-?Fle?ge?re-Chamonix-,45.9479384,6.868594877,France,Europe,December - April,26734,Yes,Yes,No,No
 302,Bretton Woods,44.2576311,-71.4413006,United States,North America,November - April,15406,Yes,Yes,Yes,No
@@ -331,7 +331,7 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 330,Aprica,46.152697,10.151656,Italy,Europe,November - May,13965,Yes,Yes,No,No
 331,Bormio-Cima Bianca,46.4397574,10.3924531,Italy,Europe,November - April,17630,Yes,Yes,Yes,No
 332,Sedrun-Oberalp,46.6652022,8.704905479,Switzerland,Europe,November - April,12100,Yes,Yes,No,No
-333,Grosseck-?Speiereck-Mauterndorf-?St. Michael,47.1217604,13.64406919,Austria,Europe,December - April,14286,Yes,No,Yes,No
+333,Grosseck-?Speiereck-Mauterndorf-?St - Michael,47.1217604,13.64406919,Austria,Europe,December - April,14286,Yes,No,Yes,No
 334,Hirmentaz-?Les Habe?res-Bellevaux-?Habe?re-Poche,46.2511455,6.517806672,France,Europe,December - March,29480,Yes,Yes,No,No
 335,Pragelato,45.0162171,6.9424531,Italy,Europe,December - April,3660,Yes,No,No,No
 336,Porte? Puymorens,42.5488878,1.833462,France,Europe,September - April,7380,Yes,Yes,No,No
@@ -341,7 +341,7 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 340,Zao Onsen,38.1679266,140.4003442,Japan,Asia,December - May,50000,Yes,Yes,No,No
 341,Lindvallen-?Ho?gfja?llet-Sa?len-,61.159705,13.193609,Sweden,Europe,November - May,50505,Yes,Yes,Yes,No
 342,Jasna? Ni?zke Tatry-Chopok,48.966941,19.58101661,Slovakia,Europe,December - May,35225,Yes,Yes,Yes,No
-343,Mitsumata-?Kagura-?Tashiro-Mt. Naeba-,36.3937327,139.0890263,Japan,Asia,November - May,31400,Yes,Yes,No,No
+343,Mitsumata-?Kagura-?Tashiro-Mt - Naeba-,36.3937327,139.0890263,Japan,Asia,November - May,31400,Yes,Yes,No,No
 344,Tanda?dalen-?Hundfja?llet-Sa?len-,61.1792462,12.9919443,Sweden,Europe,November - May,42636,Yes,Yes,Yes,No
 345,Appi Kogen,40.0123954,140.9976755,Japan,Asia,Unknown,23800,Yes,No,No,No
 346,Gazprom Mountain Resort-Laura-– Esto-Sadok-Sotschi-,43.684855,40.281935,Russia,Europe,December - April,27874,Yes,No,Yes,No
@@ -359,7 +359,7 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 358,Jahorina,43.7233441,18.59622766,Bosnia and Herzegovina,Europe,Unknown,16230,Yes,No,Yes,No
 359,Espace Do?le-La Do?le-?Les Tuffes,47.0944134,5.492668685,France,Europe,December - March,19380,Yes,Yes,No,No
 360,Myoko Akakura,36.89304245,138.1795517,Japan,Asia,Unknown,37400,Yes,Yes,Yes,No
-361,Naeba-Mt. Naeba-,36.8459419,138.690323,Japan,Asia,December - April,25400,Yes,Yes,Yes,No
+361,Naeba-Mt - Naeba-,36.8459419,138.690323,Japan,Asia,December - April,25400,Yes,Yes,Yes,No
 362,Nozawa Onsen,36.91722415,138.4640226,Japan,Asia,November - April,29772,Yes,Yes,Yes,No
 363,Kreischberg,47.0634486,14.03933,Austria,Europe,December - April,18808,Yes,Yes,No,No
 364,Garmisch-Classic-Garmisch-Partenkirchen,47.4596073,11.07616628,Germany,Europe,December - April,21090,Yes,Yes,No,No
@@ -367,7 +367,7 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 366,Pizol-Bad Ragaz-?Wangs,46.979739,9.436717,Switzerland,Europe,December - April,12786,Yes,Yes,Yes,No
 367,SuperBesse-Puy de Sancy,45.506646,2.8594,France,Europe,December - April,21245,Yes,Yes,Yes,No
 368,Sto?ten,61.2660478,12.8904555,Sweden,Europe,Unknown,19250,Yes,No,No,No
-369,Palando?ken-Ejder 3200 World Ski Center-,39.5430157,42.9152472,Turkey,Asia,November - April,15390,Yes,Yes,Yes,No
+369,Palando?ken-Ejder,39.5430157,42.9152472,Turkey,Asia,November - April,15390,Yes,Yes,Yes,No
 370,Fellhorn-?Kanzelwand-Oberstdorf-?Riezlern,47.6099906,12.5088699,Austria,Europe,December - April,22076,Yes,Yes,Yes,No
 371,Idre Fja?ll,61.8896064,12.8330743,Sweden,Europe,October - April,24760,Yes,Yes,Yes,No
 372,Großglockner Resort Kals-Matrei,47.009935,12.6232,Austria,Europe,December - April,18276,Yes,Yes,No,No
@@ -385,7 +385,7 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 384,YongPyong Resort,37.645906,128.681814,South Korea,Asia,November - April,27400,Yes,No,Yes,No
 385,Cimone-Montecreto-?Sestola-?Le Polle,45.97985,11.0630167,Italy,Europe,November - April,23746,Yes,Yes,No,No
 386,Luchon Superbagne?res,42.768303,0.5780217,France,Europe,December - April,15965,Yes,Yes,No,No
-387,High1 Resort,37.207294,128.824816,South Korea,Asia,December - April,26685,Yes,No,No,No
+387,High Resort,37.207294,128.824816,South Korea,Asia,December - April,26685,Yes,No,No,No
 388,La Parva,-33.3355943,-70.2899972,Chile,South America,June - October,13740,Yes,Yes,No,Yes
 389,Le?lex-?Crozet,46.3026091,5.9407475,France,Europe,December - March,16750,Yes,Yes,No,No
 390,Alpika Service,43.667196,40.246821,Russia,Europe,December - April,18120,Yes,No,No,No
@@ -395,7 +395,7 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 394,Whiteface-Lake Placid,44.36586225,-73.83531534,United States,North America,November - April,14200,Yes,Yes,No,No
 395,Rauriser Hochalmbahnen-Rauris,47.223392,12.990109,Austria,Europe,December - April,11927,Yes,Yes,No,No
 396,Hoch-Ybrig-Unteriberg-?Oberiberg,47.01175015,8.787310015,Switzerland,Europe,December - April,16650,Yes,Yes,No,No
-397,Meran 2000,46.6655583,11.3071256,Italy,Europe,December - March,9478,Yes,Yes,No,No
+397,Meran,46.6655583,11.3071256,Italy,Europe,December - March,9478,Yes,Yes,No,No
 398,Na?tschen-Andermatt,46.65201925,8.622667027,Switzerland,Europe,December - March,13600,Yes,No,No,No
 399,Hoshino Resorts Tomamu,43.065765,142.63264,Japan,Asia,Unknown,12400,Yes,No,No,No
 400,Albiez-Montrond,45.2174088,6.340903,France,Europe,December - April,10432,Yes,No,No,No
@@ -408,7 +408,7 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 407,The Summit at Snoqualmie,47.424462,-121.417071,United States,North America,December - April,30400,Yes,Yes,Yes,No
 408,Poiana Bras?ov,45.5967098,25.5561895,Romania,Europe,December - April,11038,Yes,No,Yes,No
 409,Hinterstoder-Ho?ss,47.66612225,14.17403784,Austria,Europe,December - April,18464,Yes,Yes,No,No
-410,St. Jean Montclar,44.411775,6.3510526,France,Europe,December - April,13320,Yes,No,No,No
+410,St - Jean Montclar,44.411775,6.3510526,France,Europe,December - April,13320,Yes,No,No,No
 411,Port del Comte,42.1694417,1.5696298,Spain,Europe,Unknown,13750,Yes,No,No,No
 412,Ta?nndalen,62.5423638,12.3360263,Sweden,Europe,Unknown,19270,Yes,No,No,No
 413,Feldberg-Seebuck-?Grafenmatt-?Fahl,47.86345025,8.070282232,Germany,Europe,December - April,17624,Yes,Yes,No,No
@@ -427,7 +427,7 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 426,Turracher Ho?he,46.91448535,13.87352444,Austria,Europe,November - May,18268,Yes,Yes,Yes,No
 427,Indoor ski area Snow Arena-Druskininkai,54.03173,23.960042,Lithuania,Europe,Year-round,2800,Yes,Yes,Yes,Yes
 428,Niedere-Andelsbuch-?Bezau,47.4002902,9.9376361,Austria,Europe,December - March,6043,Yes,No,No,No
-429,Summit Ski Area at Mt. Hood,45.303419,-121.745667,United States,North America,December - April,1200,Yes,No,No,No
+429,Summit Ski Area at Mt - Hood,45.303419,-121.745667,United States,North America,December - April,1200,Yes,No,No,No
 430,Wurzeralm-Spital am Pyhrn,47.6279977,14.3162785,Austria,Europe,December - April,9048,Yes,No,No,No
 431,Pra?bichl-Vordernberg,47.5208498,14.9512205,Austria,Europe,December - April,6624,Yes,Yes,No,No
 432,Pfelders-Moos in Passeier-,46.7952778,11.0895074,Italy,Europe,December - April,4300,Yes,Yes,Yes,No
@@ -439,7 +439,7 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 438,Kobla-Bohinj,46.2338617,13.9650643,Slovenia,Europe,December - March,5720,Yes,No,No,No
 439,Sudelfeld-Bayrischzell,47.6717401,12.04163164,Germany,Europe,Unknown,17477,Yes,Yes,No,No
 440,Gru?ntenlifte-Kranzegg-Rettenberg-,47.5824873,10.3212662,Germany,Europe,December - April,7420,Yes,Yes,No,No
-441,Grebenzen-St. Lambrecht,47.0536954,14.33034179,Austria,Europe,December - March,6790,Yes,No,No,No
+441,Grebenzen-St - Lambrecht,47.0536954,14.33034179,Austria,Europe,December - March,6790,Yes,No,No,No
 442,Kirchdorf,47.57562605,12.38734435,Austria,Europe,December - March,3570,Yes,No,No,No
 443,Nebelhorn-Oberstdorf,47.4218727,10.3423461,Germany,Europe,December - May,5990,Yes,No,No,No
 444,Lachtal,47.2524874,14.3682392,Austria,Europe,December - April,10620,Yes,No,No,No
@@ -484,17 +484,17 @@ ID,Resort,Latitude,Longitude,Country,Continent,Season,Lift capacity,Child friend
 483,Kvitfjell,58.6834043,9.0280158,Norway,Europe,October - May,17952,Yes,Yes,Yes,No
 484,Molines-en-Queyras-?Saint-Ve?ran,44.7122166,6.870256556,France,Europe,December - April,12290,Yes,No,No,No
 485,Tatranska? Lomnica,49.1655267,20.2791933,Slovakia,Europe,December - April,12480,Yes,No,No,No
-486,Mt. Dobson,-43.9218555,169.757177,New Zealand,Oceania,July - October,3660,Yes,No,No,Yes
+486,Mt - Dobson,-43.9218555,169.757177,New Zealand,Oceania,July - October,3660,Yes,No,No,Yes
 487,Kanin-Sella Nevea-?Bovec,46.3649708,13.48181712,Slovenia,Europe,December - April,11670,Yes,No,No,No
 488,Postwiesen Skidorf-Neuastenberg,51.188476,8.518201,Germany,Europe,December - March,6762,Yes,Yes,Yes,No
 489,Kaiseregg-?Riggisalp-Schwarzsee,46.6524972,7.3190559,Switzerland,Europe,December - March,5790,Yes,Yes,Yes,No
-490,St. Pierre de Chartreuse-Le Planolet,45.3422689,5.8146864,France,Europe,December - April,12610,Yes,No,No,No
+490,St - Pierre de Chartreuse-Le Planolet,45.3422689,5.8146864,France,Europe,December - April,12610,Yes,No,No,No
 491,Loon Mountain,44.5164518,-74.6496253,United States,North America,November - April,17034,Yes,Yes,No,No
-492,Oberjoch-Bad Hindelang-– Iseler,47.5087114,10.4087222,Germany,Europe,December - April,12388,Yes,Yes,Yes,No
+492,Oberjoch-Bad Hindelang–- Iseler,47.5087114,10.4087222,Germany,Europe,December - April,12388,Yes,Yes,Yes,No
 493,Mo?nichkirchen-?Mariensee,47.5235306,15.99868228,Austria,Europe,March,6741,Yes,Yes,No,No
 494,Gra?chen,46.1960178,7.8421612,Switzerland,Europe,December - April,13860,Yes,No,No,No
 495,Puigmal,42.3950066,2.1088833,France,Europe,Unknown,11865,Yes,No,No,No
 496,Kranzberg-Mittenwald,47.4513588,11.2286303,Germany,Europe,December,5850,Yes,Yes,Yes,No
-497,Wetterstein lifts-Wettersteinbahnen-– Ehrwald,47.406897,10.927998,Austria,Europe,December - March,5425,Yes,Yes,No,No
+497,Wetterstein lifts-Wettersteinbahnen–- Ehrwald,47.406897,10.927998,Austria,Europe,December - March,5425,Yes,Yes,No,No
 498,Stuhleck-Spital am Semmering,47.5741948,15.7899645,Austria,Europe,April,14400,Yes,Yes,Yes,No
 499,Le Massif,47.2759,-70.6259857,Canada,North America,December - April,11759,Yes,Yes,No,No
