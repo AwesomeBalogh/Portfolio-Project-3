@@ -79,18 +79,18 @@ def print_resorts_in_country(country):
     return resort_list
 
 def select_resort(resort_list):
-
     '''
     input list[[resort name, resort ID],...]
     output list resort ID and name
     '''
     while True:
-        user_resort = int(input("input the resort number here: "))
+        user_resort = int(input("Input the resort number here: "))
 
         indexnumber = -1
 
         if 0 < user_resort <= len(resort_list):
             indexnumber = resort_list[user_resort-1][1]
+            print()
             print(f'You selected {resort_list[user_resort-1][0]}')
             return indexnumber
         else:
@@ -151,24 +151,30 @@ def print_stats(indexnumber):       #needs fixes
     Parameters: Index  (internal)
     Returns: None
     '''
-
     resort_data = user_csv.read_csv("resorts", 1)      # gets csv of ski resort data
-    resort_stats = user_csv.read_csv("Resort price and features", 0)  # gets csv of ski resort stats
-    
+    resort_stats = user_csv.read_csv("Resort price and features", 1)  # gets csv of ski resort stats
+
+    #numpy array of data FYI
+
     resort_row = None
     stats_row = None
     
-    #for j, row in enumerate(resort_data):                     #They be happy I used enumerate here!!
-    for j in range(len(resort_data)):
-        if (resort_data[j][0]) == indexnumber:
-            resort_row = resort_data[j]
-            stats_row = resort_stats[j]
+    # Find the row in resorts with matching ID
+    for row in resort_data:
+        if int(row[0]) == indexnumber:
+            resort_row = row
             break
 
-    if resort_row is None:                                  # This should never run, just in case
-        print(f"No resort found.")
-        return 
+    # Find the row in stats with matching ID
+    for row in resort_stats:
+        if int(row[0]) == indexnumber:
+            stats_row = row
+            break
 
+    if resort_row is None or stats_row is None:     #This should never run, just in case.
+        print("No resort or stats found for that ID.")
+        return
+    
     resort_name = resort_row[1]
     country = resort_row[4]
     season_length = resort_row[6]
@@ -180,7 +186,7 @@ def print_stats(indexnumber):       #needs fixes
     print(f'Statistics for {resort_name} in {country}:')
     print(f'Price of Day Ticket: ${price*1.63:0.2f} CAD')
     print(f'Season Length: {season_length}')
-    print(f'Vertical Drop: {vertical_drop:0.2f} meters')
+    print(f'Vertical Drop: {vertical_drop:0.2f} Meters')
     print(f'Number of Lifts: {num_lifts}') 
         
     return
@@ -258,6 +264,7 @@ print('''\t\t      _
 ::::...:::;;:::::;;;;;;;;;;;;;;:::::;;::{:::::::;;;:..  .:;:... ::;;::::..
 ;;;;:::;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;];;;;;;;;;;::::::;;;;:.::;;;;;;;;:..\n''')
 print('Welcome to the Ski resort database! This code will allow you to explore ski resorts around the world!')   #welcome message
+print('Please note: This data was last updated in 2022, so todays data may differ slightly.')
 
 while True:
     input_country = get_country_input()
@@ -265,7 +272,7 @@ while True:
     if(input_country == 'Leave'):       #break out of loop for exit sequence
         break
 
-    resort_opt = print_resorts_in_country(input_country)
+    resort_opt = print_resorts_in_country(input_country)        #[[Resort name, resort ID],[Name,ID]...]
     while len(input_country) > 0:
         menu_input = input(
         "Choose from the following options:\n"
@@ -279,13 +286,21 @@ while True:
         ).lower().strip()
 
         #Added a bunch of other possible inputs for dummy proofing.
+        numbers_stuff = []
+        for i in range(1000):
+            numbers_stuff.append(i)
 
         if menu_input in ('average','avg'):
             avg = average_price(input_country)
-            print(f'\n The average price of a ski resort day ticket in {input_country} is ${avg:.2f} CAD.')
+            print(f'\nThe average price of a ski resort day ticket in {input_country} is ${avg:.2f} CAD.')
+
+        elif menu_input in (str(numbers_stuff)):
+            print("Looks like you want to select a resort.")
+            index = select_resort(resort_opt)
+            print_stats(index)
 
         elif menu_input in ('histogram', 'hist'):
-            (input_country)
+            hist_prices(input_country)
 
         elif menu_input in ('diff', 'difficulty'):
             print_max_difficulty(resort_opt, input_country)
