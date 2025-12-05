@@ -224,7 +224,7 @@ def scatter_price_vs_lifts(country):
     vs number of lifts for all resorts in a given country.
     """
     resort_data = user_csv.read_csv("resorts", 1)
-    resort_stats = user_csv.read_csv("Resort price and features", 0)
+    resort_stats = user_csv.read_csv("Resort price and features", 1)
 
     prices_cad = []
     num_lifts = []
@@ -237,8 +237,18 @@ def scatter_price_vs_lifts(country):
             prices_cad.append(price_cad)
             num_lifts.append(lifts)
 
+    paired = []                             #Sorts the number of lists 
+    for i in range(len(num_lifts)):
+        paired.append([num_lifts[i], prices_cad[i]])
+    paired.sort()   
+    num_lifts_sorted = []
+    prices_sorted = []
+    for i in paired:
+        num_lifts_sorted.append(i[0])
+        prices_sorted.append(i[1])
+
     plt.figure()
-    plt.scatter(num_lifts, prices_cad)
+    plt.scatter(num_lifts_sorted, prices_sorted)
     plt.title(f'Day Ticket Prices vs Number of Lifts in {country}')
     plt.xlabel('Number of Lifts')
     plt.ylabel('Day Ticket Price (CAD)')
@@ -314,7 +324,7 @@ while True:
         elif menu_input  in ('scatter', 'scatter plot', 'plot', 'scat'):
             scatter_price_vs_lifts(input_country)
 
-        elif menu_input == '-':
+        elif menu_input == 'leave':
             break
 
         else:
