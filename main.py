@@ -32,6 +32,9 @@ def get_country_input():
                 + (f"{i+3:2d} - {valid_countries[i+2]:35s}" if i+2 < len(valid_countries) else "")
                 )
 
+        elif(input_region == 'Leave'):
+            break
+
         elif(not np.isin(input_region, valid_countries)):             #print error message if input is not valid  
             if(input_region == '-'):                                  #check for exit condition
                 break
@@ -119,7 +122,7 @@ def average_price(country):
     avg = np.mean(prices_cad)
     return avg
 
-def print_max_difficulty(index_number, country):               #fix 
+def print_max_difficulty(index_number, country):               
     run_data = user_csv.read_csv('resort runs', 1)
 
     data = []  # use a Python list first
@@ -138,12 +141,12 @@ def print_max_difficulty(index_number, country):               #fix
 
     adv_idx =index_number[np.argmax(data[:, 3])][0]
 
-    print(f'The best resort for beginners in {country} is {beg_idx}, having {beg} beginner runs.\n')
+    print(f'\nThe best resort for beginners in {country} is {beg_idx}, having {beg} beginner runs.\n')
     print(f'The best resort for advanced runs in {country} is {adv_idx}, having {adv} beginner runs.\n')
     
     return beg, adv, beg_idx, adv_idx, country
 
-def print_stats(indexnumber):
+def print_stats(indexnumber):       #needs fixes 
     '''Print ski resort statistics given resort index number
     Parameters: Index  (internal)
     Returns: None
@@ -154,16 +157,17 @@ def print_stats(indexnumber):
     
     resort_row = None
     stats_row = None
-
-    for j, row in enumerate(resort_data):                     #They be happy I used enumerate here!!
-        if (row[0]) == indexnumber:
-            resort_row = row
+    
+    #for j, row in enumerate(resort_data):                     #They be happy I used enumerate here!!
+    for j in range(len(resort_data)):
+        if (resort_data[j][0]) == indexnumber:
+            resort_row = resort_data[j]
             stats_row = resort_stats[j]
             break
 
     if resort_row is None:                                  # This should never run, just in case
         print(f"No resort found.")
-        return select_resort()
+        return 
 
     resort_name = resort_row[1]
     country = resort_row[4]
@@ -288,7 +292,6 @@ while True:
         
         elif menu_input in ('select', 'select resort', 'resort', 'view'):
             index = select_resort(resort_opt)
-            print(index)
             print_stats(index)
 
         elif menu_input  in ('scatter', 'scatter plot', 'plot', 'scat'):

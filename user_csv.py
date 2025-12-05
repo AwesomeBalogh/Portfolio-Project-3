@@ -42,7 +42,7 @@ def write_csv(file_name, numpy_array, overwrite):       #for overwrite, input 'x
     '''
     Format and write a CSV file from a numpy array
 
-    Inputs: file name, array to be made into a CSV file, overwrite operator
+    Inputs: file name, array to be made into a CSV file, overwrite operator, 'x' to maxe new file, 'a' to append
 
     Returns: None
     '''
