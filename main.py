@@ -76,7 +76,7 @@ def print_resorts_in_country(country):
             )
     print()  # Add an extra newline for better readability
 
-    user_csv.write_csv(f'Resorts in {country}',resort_list,'x')     #write CSV for resorts in country and their ID number
+    #user_csv.write_csv(f'Resorts in {country}',resort_list,'x')     #write CSV for resorts in country and their ID number
     
     return resort_list
 
@@ -193,6 +193,11 @@ def print_stats(indexnumber):       #needs fixes
         
     return
 
+
+def save_resort_list(user_index, country):
+    filen = input('Enter your File name here: ').strip().title()
+    user_csv.write_csv(f'{filen}-{country}', np.array(user_index), 'x')
+
 #===========================================================Visualization Functions===========================================================
 def hist_prices(country):
     """
@@ -292,7 +297,8 @@ while True:
         "Average   - Finds the average ticket price of all resorts in this country\n"
         "Histogram  - Displays a histogram of the day ticket price by the number of resorts in the country.\n"
         "Difficulty - resort with maximum difficulty\n"
-        "Scatter    - price vs number of lifts scatter plot\n"
+        "Scatter    - price vs number of lifts scatter plot\n" \
+        "Save       - Save a list of the ski resorts in a country"
         "To return to Country selection, enter 'Leave'\n"
         "\nEnter selection: "
         ).lower().strip()
@@ -305,6 +311,9 @@ while True:
         if menu_input in ('average','avg'):
             avg = average_price(input_country)
             print(f'\nThe average price of a ski resort day ticket in {input_country} is ${avg:.2f} CAD.')
+
+        elif menu_input in ('save'):
+            save_resort_list(resort_opt,input_country)
 
         elif menu_input in (str(numbers_stuff)):
             print("Looks like you want to select a resort.")
