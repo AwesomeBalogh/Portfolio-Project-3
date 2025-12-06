@@ -57,7 +57,7 @@ def print_resorts_in_country(country):
     resort_list = []
 
     for i in range(len(resort_data)):    
-        resort_ID = [str(resort_data[i][1]), float(resort_data[i][0])]        #structure resorts to have the ID number and the name
+        resort_ID = [str(resort_data[i][1]), int(float(resort_data[i][0]))]
         if country == resort_data[i][4]:                                    #If the country is in the list, add the ID and name of the resort to the list
             resort_list.append(resort_ID)
             
@@ -91,7 +91,7 @@ def select_resort(resort_list):
         indexnumber = -1
 
         if 0 < user_resort <= len(resort_list):
-            indexnumber = resort_list[user_resort-1][1]
+            indexnumber = int(resort_list[user_resort-1][1])
             print()
             print(f'You selected {resort_list[user_resort-1][0]}')
             return indexnumber
@@ -114,7 +114,7 @@ def average_price(country):
         Average price in CAD.
     """
     resort_data = user_csv.read_csv("resorts", 1)      # gets csv of ski resort data
-    resort_stats = user_csv.read_csv("Resort price and features", 0)  # gets csv of ski resort stats
+    resort_stats = user_csv.read_csv("Resort price and features", 1)  # gets csv of ski resort stats
     prices_cad = []
     for i in range(len(resort_data)):
         if resort_data[i][4] == country:
@@ -124,7 +124,7 @@ def average_price(country):
     avg = np.mean(prices_cad)
     return avg
 
-def print_max_difficulty(index_number, country):               
+def print_max_difficulty(index_number, country):
     run_data = user_csv.read_csv('resort runs', 1)
 
     data = []  # use a Python list first
@@ -148,7 +148,7 @@ def print_max_difficulty(index_number, country):
     
     return beg, adv, beg_idx, adv_idx, country
 
-def print_stats(indexnumber):       #needs fixes 
+def print_stats(indexnumber):
     '''Print ski resort statistics given resort index number
     Parameters: Index  (internal)
     Returns: None
@@ -163,13 +163,15 @@ def print_stats(indexnumber):       #needs fixes
     
     # Find the row in resorts with matching ID
     for row in resort_data:
-        if int(row[0]) == indexnumber:
+        resort_id = int(float(row[0]))      #This solves our float int problem to handle '1', '1.0, 1.0
+        if resort_id == indexnumber:
             resort_row = row
             break
 
     # Find the row in stats with matching ID
     for row in resort_stats:
-        if int(row[0]) == indexnumber:
+        resort_id = int(float(row[0]))
+        if resort_id == indexnumber:
             stats_row = row
             break
 
@@ -193,7 +195,6 @@ def print_stats(indexnumber):       #needs fixes
         
     return
 
-
 def save_resort_list(user_index, country):
     filen = input('Enter your File name here: ').strip().title()
     user_csv.write_csv(f'{filen}-{country}', np.array(user_index), 'x')
@@ -205,7 +206,7 @@ def hist_prices(country):
     for all resorts in a given country, without using try/except.
     """
     resort_data = user_csv.read_csv("resorts", 1)
-    resort_stats = user_csv.read_csv("Resort price and features", 0)
+    resort_stats = user_csv.read_csv("Resort price and features", 1)
 
     prices_cad = []
 
@@ -259,9 +260,7 @@ def scatter_price_vs_lifts(country):
     plt.ylabel('Day Ticket Price (CAD)')
     plt.show()
     return
-    
-    
-    
+
 #===========================================================Main Program===========================================================
 #Prints welcome message and ski resort ASCII art
 print('''\t\t      _
