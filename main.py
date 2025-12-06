@@ -30,7 +30,7 @@ def get_country_input():
         valid_countries.sort()                                        #alphabetize list
     
     while True:
-        input_region = input("Input your country here. (To exit the program, type 'Leave'): ").title().strip()     #Ask for input regions
+        input_region = input("Input your country here. (To get a list of avalible countries, type '0'. To exit the program, type 'Leave'): ").title().strip()     #Ask for input regions
         valid_countries.sort()                                        #alphabetize list
         if(input_region == '0'):
 
@@ -289,12 +289,12 @@ while True:
         menu_input = input(
         "Choose from the following options:\n"
         "Select     - Select a resort to view its statistics.\n"
-        "Average    - Finds the average ticket price of all resorts in this country\n"
+        "Average    - Finds the average ticket price of all resorts in this country.\n"
         "Histogram  - Displays a histogram of the day ticket price by the number of resorts in the country.\n"
-        "Difficulty - Resort with maximum difficulty\n"
-        "Scatter    - Price vs number of lifts with the option to overlay two plots\n" \
-        "Save       - Save a list of the ski resorts in a country"
-        "To return to Country selection, enter 'Leave'\n"
+        "Difficulty - Display the best resorts for diffrent skill levels.\n"
+        "Scatter    - Price vs number of lifts with the option to overlay two plots.\n" \
+        "Save       - Save a list of the ski resorts in a country.\n"
+        "To return to Country selection, enter 'Leave'.\n"
         "\nEnter selection: "
         ).lower().strip()
 
