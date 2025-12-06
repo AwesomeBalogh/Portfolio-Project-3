@@ -31,7 +31,12 @@ def get_country_input():
     while True:
         input_region = input("Input your country here. (To exit the program, type 'Leave'): ").title().strip()     #Ask for input regions
         valid_countries.sort()                                        #alphabetize list
+<<<<<<< HEAD
         if(input_region == '0'):  
+=======
+        if(input_region == '0'):
+
+>>>>>>> 016abf04e13bdd6db880b817524b7c9b93a7897d
             for i in range(0, len(valid_countries), 3):                     #print 3 resorts per line  JORDAN LMK if you like this, some resorts have very long names though!!    
                 print(
                 f"{i+1:2d} - {valid_countries[i]:35s}"
