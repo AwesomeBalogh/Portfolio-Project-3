@@ -293,7 +293,7 @@ while True:
         menu_input = input(
         "Choose from the following options:\n"
         "Select     - Select a resort to view its statistics.\n"
-        "Average   - Finds the average ticket price of all resorts in this country\n"
+        "Average    - Finds the average ticket price of all resorts in this country\n"
         "Histogram  - Displays a histogram of the day ticket price by the number of resorts in the country.\n"
         "Difficulty - resort with maximum difficulty\n"
         "Scatter    - price vs number of lifts scatter plot\n" \
