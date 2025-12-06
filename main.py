@@ -1,7 +1,5 @@
 # Portfolio Project 3
-# Project done by Jordan Kisiler(UCID: 3028396) & Bennett Balogh(UCID:)
-
-
+# Project done by Jordan Kisiler(UCID: 3028396) & Bennett Balogh(UCID:30297254)
 
 import numpy as np
 
@@ -143,42 +141,107 @@ def hist_prices(country):
     plt.show()
     return
 
-def scatter_price_vs_lifts(country):
-    """
-    Show a scatter plot of day ticket prices (in CAD)
-    vs number of lifts for all resorts in a given country.
 
-    Param: user country
-    """
+def scatter_price_vs_lifts(country):
+    '''Shows a scatter plot of day ticket prices (in CAD)
+    vs number of lifts for all resorts in a given country.
+    User can choose a second countrry to overlay
+    on the same plot. DOUBLE PLOT
+    Parameters: Country
+    '''
     resort_data = user_csv.read_csv("resorts", 1)
     resort_stats = user_csv.read_csv("Resort price and features", 1)
 
-    prices_cad = []
-    num_lifts = []
+    valid_countries = []            #Valid countrys code copied from above
+    for i in range(len(resort_data)):
+        country = resort_data[i][4]
+        if country not in valid_countries:
+            valid_countries.append(country)
+    valid_countries.sort()
+
+    prices_cad_1 = []       #Fist country data function
+    num_lifts_1 = []
 
     for i in range(len(resort_data)):
         if resort_data[i][4] == country:
             price_eur = float(resort_stats[i][1])
             price_cad = price_eur * 1.63
-            lifts = (resort_stats[i][8])
-            prices_cad.append(price_cad)
-            num_lifts.append(lifts)
+            lifts = int(resort_stats[i][8])
+            prices_cad_1.append(price_cad)
+            num_lifts_1.append(lifts)
 
-    paired = []                             #Sorts the number of lists 
-    for i in range(len(num_lifts)):
-        paired.append([num_lifts[i], prices_cad[i]])
-    paired.sort()   
-    num_lifts_sorted = []
-    prices_sorted = []
-    for i in paired:
-        num_lifts_sorted.append(i[0])
-        prices_sorted.append(i[1])
+    if len(num_lifts_1) == 0:           #Should never run just in case
+        print(f"No resort data found for {country}.")
+        return
+
+    paired1 = []                        #Sort by list
+    for i in range(len(num_lifts_1)):
+        paired1.append([num_lifts_1[i], prices_cad_1[i]])
+    paired1.sort()
+
+    num_lifts_sorted_1 = []
+    prices_sorted_1 = []
+    for j in paired1:
+        num_lifts_sorted_1.append(j[0])
+        prices_sorted_1.append(j[1])
+
+    compare_choice = input("Would you like to overlay another country for comparison? (yes/no): ").lower().strip()
+
+    country2 = None
+    prices_sorted_2 = []
+    num_lifts_sorted_2 = []
+
+    if compare_choice in ("yes", "y"):      #Second country logic
+        while True:
+            country2_input = input(f"Enter the SECOND country to compare with {country} (or type 'Leave' to cancel): ").title().strip()
+
+            if country2_input == "Leave":
+                country2 = None
+                break
+
+            if country2_input not in valid_countries:
+                print("That country is not in the database. Try again or type 'Leave'.")
+            else:
+                country2 = country2_input
+                break
+
+        if country2 is not None:            #If country is chosen,  get its data
+            prices_cad_2 = []
+            num_lifts_2 = []
+
+            for i in range(len(resort_data)):
+                if resort_data[i][4] == country2:
+                    price_eur = float(resort_stats[i][1])
+                    price_cad = price_eur * 1.63
+                    lifts = int(resort_stats[i][8])
+                    prices_cad_2.append(price_cad)
+                    num_lifts_2.append(lifts)
+
+            if len(num_lifts_2) == 0:           #If no data is found
+                print(f"No resort data found for {country2}. Showing only {country}.")
+                country2 = None
+            else:
+                paired2 = []
+                for i in range(len(num_lifts_2)):
+                    paired2.append([num_lifts_2[i], prices_cad_2[i]])
+                paired2.sort()
+
+                for i in paired2:
+                    num_lifts_sorted_2.append(i[0])
+                    prices_sorted_2.append(i[1])
 
     plt.figure()
-    plt.scatter(num_lifts_sorted, prices_sorted)
-    plt.title(f'Day Ticket Prices vs Number of Lifts in {country}')
-    plt.xlabel('Number of Lifts')
-    plt.ylabel('Day Ticket Price (CAD)')
+    plt.scatter(num_lifts_sorted_1, prices_sorted_1, alpha=0.7, label=country)      #First Country Plot
+
+    if country2 is not None:                                #Optional second country plot
+        plt.scatter(num_lifts_sorted_2, prices_sorted_2, alpha=0.7, label=country2)
+        plt.title(f"Day Ticket Prices vs Number of Lifts\n{country} vs {country2}")
+    else:
+        plt.title(f"Day Ticket Prices vs Number of Lifts in {country}")
+
+    plt.xlabel("Number of Lifts")
+    plt.ylabel("Day Ticket Price (CAD)")
+    plt.legend()
     plt.show()
     return
 
@@ -218,8 +281,8 @@ while True:
         "Select     - Select a resort to view its statistics.\n"
         "Average    - Finds the average ticket price of all resorts in this country\n"
         "Histogram  - Displays a histogram of the day ticket price by the number of resorts in the country.\n"
-        "Difficulty - resort with maximum difficulty\n"
-        "Scatter    - price vs number of lifts scatter plot\n" \
+        "Difficulty - Resort with maximum difficulty\n"
+        "Scatter    - Price vs number of lifts with the option to overlay two plots\n" \
         "Save       - Save a list of the ski resorts in a country"
         "To return to Country selection, enter 'Leave'\n"
         "\nEnter selection: "
