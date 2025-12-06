@@ -19,7 +19,6 @@ def get_country_input():
 
     Return: validated user input country
     '''
-
     resort_data = user_csv.read_csv("resorts", 1)      #gets csv of ski resort data
     
     valid_countries = []
@@ -32,9 +31,7 @@ def get_country_input():
     while True:
         input_region = input("Input your country here. (To exit the program, type 'Leave'): ").title().strip()     #Ask for input regions
         valid_countries.sort()                                        #alphabetize list
-        if(input_region == '0'):
-            #for i in range(len(valid_countries)):
-            #    print(f'{i} - {valid_countries[i]}')     
+        if(input_region == '0'):  
             for i in range(0, len(valid_countries), 3):                     #print 3 resorts per line  JORDAN LMK if you like this, some resorts have very long names though!!    
                 print(
                 f"{i+1:2d} - {valid_countries[i]:35s}"
@@ -88,9 +85,6 @@ def print_resorts_in_country(country):
             + (f"{i+3:2d} - {resort_list[i+2][0]:35s}" if i+2 < len(resort_list) else "")
             )
     print()  # Add an extra newline for better readability
-
-    #user_csv.write_csv(f'Resorts in {country}',resort_list,'x')     #write CSV for resorts in country and their ID number
-    
     return resort_list
 
 def select_resort(resort_list):
@@ -102,22 +96,21 @@ def select_resort(resort_list):
     Return: indexnumber : int(resort id)
     '''
     while True:
-        user_resort = input("Input the resort number here: ").strip()
+        user_resort = input("Input the resort number here: ").strip()       #Gets user input
 
-        if not user_resort.isdigit():
+        if not user_resort.isdigit():                                       #Makes sure input is a valid digit
             print("Please enter a valid number.")
             continue
 
         user_resort = int(user_resort)
 
-        if 1 <= user_resort <= len(resort_list):
+        if 1 <= user_resort <= len(resort_list):                            #Iterates through to find the index number
             indexnumber = int(resort_list[user_resort - 1][1])
             print()
             print(f'You selected {resort_list[user_resort - 1][0]}')
             return indexnumber
         else:
             print("Invalid input, please try again.")
-
 
 #===========================================================Visualization Functions===========================================================
 def hist_prices(country):
@@ -141,7 +134,7 @@ def hist_prices(country):
             prices_cad.append(price_cad)  
 
     plt.figure()
-    plt.hist(prices_cad, bins=10, edgecolor='black')
+    plt.hist(prices_cad, bins=10, edgecolor='black')            #Sorts prices in a country into groups of 10 
     plt.title(f'Day Ticket Prices in {country}')
     plt.xlabel('Day ticket price (CAD)')
     plt.ylabel('Number of Resorts')
@@ -157,7 +150,7 @@ def scatter_price_vs_lifts(country):
     on the same plot. 
 
     Parameters: Country
-    
+
     Return: None
     '''
     resort_data = user_csv.read_csv("resorts", 1)
@@ -170,7 +163,7 @@ def scatter_price_vs_lifts(country):
             valid_countries.append(c)
     valid_countries.sort()
 
-    prices_cad_1 = []       #Fist country data function
+    prices_cad_1 = []                   #Fist country data function
     num_lifts_1 = []
 
     for i in range(len(resort_data)):
@@ -291,8 +284,8 @@ while True:
         "Choose from the following options:\n"
         "Select     - Select a resort to view its statistics.\n"
         "Average    - Finds the average ticket price of all resorts in this country\n"
-        "Histogram  - Displays a histogram of the day ticket price by the number of resorts in the country.\n"
         "Difficulty - Resort with maximum difficulty\n"
+        "Histogram  - Displays a histogram of the day ticket price by the number of resorts in the country.\n"
         "Scatter    - Price vs number of lifts with the option to overlay two plots\n" \
         "Save       - Save a list of the ski resorts in a country"
         "To return to Country selection, enter 'Leave'\n"
