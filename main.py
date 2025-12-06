@@ -1,13 +1,25 @@
+# Portfolio Project 3
+# Project done by Jordan Kisiler(UCID: 3028396) & Bennett Balogh(UCID:)
+
+
+
 import numpy as np
 
 import matplotlib.pyplot as plt
 
 import user_csv
+
+import calculations as calcs
+
+import data_process as datap
 #===========================================================Function Definitions===========================================================
 def get_country_input():
-    ''' Gets user input for country, and displays valid countries if requested. 
-    Parameters: none
-    Return: input country
+    ''' 
+    Gets user input for country, and displays valid countries if requested. 
+    
+    Param: None
+
+    Return: validated user input country
     '''
 
     resort_data = user_csv.read_csv("resorts", 1)      #gets csv of ski resort data
@@ -49,8 +61,11 @@ def get_country_input():
 
 def print_resorts_in_country(country):
     '''
-    input country
-    output a list of the ski resort and its respective ID number
+    Print a list of possible resorts in Canada
+
+    Param: user selected country
+
+    Return: list of the ski resort and its respective ID number
     '''
     resort_data = user_csv.read_csv("resorts", 1)      #gets csv of ski resort data
 
@@ -82,8 +97,11 @@ def print_resorts_in_country(country):
 
 def select_resort(resort_list):
     '''
-    input list[[resort name, resort ID],...]
-    output list resort ID and name
+    Validates and returns a selected resort and its index number
+
+    param: list or resort name and index number
+
+    Return: list resort index and name
     '''
     while True:
         user_resort = int(input("Input the resort number here: "))
@@ -98,112 +116,13 @@ def select_resort(resort_list):
         else:
             print("Invalid Input, please try again")
 
-def average_price(country):
-    """
-    Compute the average ski resort day ticket price in CAD.
-
-    Converts the price data (column 1) from a list of resorts to floats,
-    finds the mean, converts from EUR to CAD, prints a message, and
-    returns the average.
-
-    Parameters:
-    Country : str
-        Country name used in the printed output.
-    Returns:
-    float
-        Average price in CAD.
-    """
-    resort_data = user_csv.read_csv("resorts", 1)      # gets csv of ski resort data
-    resort_stats = user_csv.read_csv("Resort price and features", 1)  # gets csv of ski resort stats
-    prices_cad = []
-    for i in range(len(resort_data)):
-        if resort_data[i][4] == country:
-            price_eur = float(resort_stats[i][1])
-            prices_cad.append(price_eur*1.63) # Convert EUR to CAD
-
-    avg = np.mean(prices_cad)
-    return avg
-
-def print_max_difficulty(index_number, country):
-    run_data = user_csv.read_csv('resort runs', 1)
-
-    data = []  # use a Python list first
-
-    for i in range(len(index_number)):
-        idx = int(index_number[i][1] - 1)   # convert to 0-based
-        data.append(run_data[idx])
-
-    data = np.array(data)  # convert to NumPy at the end
-    
-    beg = np.max(data[:, 1])
-
-    beg_idx =index_number[np.argmax(data[:, 1])][0] 
-
-    adv = np.max(data[:, 3])
-
-    adv_idx =index_number[np.argmax(data[:, 3])][0]
-
-    print(f'\nThe best resort for beginners in {country} is {beg_idx}, having {int(beg)} beginner runs.\n')
-    print(f'The best resort for advanced skiers in {country} is {adv_idx}, having {int(adv)} advanced runs.\n')
-    
-    return beg, adv, beg_idx, adv_idx, country
-
-def print_stats(indexnumber):
-    '''Print ski resort statistics given resort index number
-    Parameters: Index  (internal)
-    Returns: None
-    '''
-    resort_data = user_csv.read_csv("resorts", 1)      # gets csv of ski resort data
-    resort_stats = user_csv.read_csv("Resort price and features", 1)  # gets csv of ski resort stats
-
-    #numpy array of data FYI
-
-    resort_row = None
-    stats_row = None
-    
-    # Find the row in resorts with matching ID
-    for row in resort_data:
-        resort_id = int(float(row[0]))      #This solves our float int problem to handle '1', '1.0, 1.0
-        if resort_id == indexnumber:
-            resort_row = row
-            break
-
-    # Find the row in stats with matching ID
-    for row in resort_stats:
-        resort_id = int(float(row[0]))
-        if resort_id == indexnumber:
-            stats_row = row
-            break
-
-    if resort_row is None or stats_row is None:     #This should never run, just in case.
-        print("No resort or stats found for that ID.")
-        return
-    
-    resort_name = resort_row[1]
-    country = resort_row[4]
-    season_length = resort_row[6]
-
-    vertical_drop = int(stats_row[2]) - int(stats_row[3])
-    num_lifts = int(stats_row[8])
-    price = float(stats_row[1])
-
-    print(f'Statistics for {resort_name} in {country}:')
-    print(f'Price of Day Ticket: ${price*1.63:0.2f} CAD')
-    print(f'Season Length: {season_length}')
-    print(f'Vertical Drop: {vertical_drop:0.2f} Meters')
-    print(f'Number of Lifts: {num_lifts}') 
-        
-    return
-
-def save_resort_list(user_index, country):
-    filen = input('Enter your File name here: ').strip().title()
-    user_csv.write_csv(f'{filen}-{country}', np.array(user_index), 'x')
-
 #===========================================================Visualization Functions===========================================================
 def hist_prices(country):
     """
     Show a histogram of day ticket prices (in CAD)
-    for all resorts in a given country, without using try/except.
+    for all resorts in a given country
+
+    Param: user country
     """
     resort_data = user_csv.read_csv("resorts", 1)
     resort_stats = user_csv.read_csv("Resort price and features", 1)
@@ -228,6 +147,8 @@ def scatter_price_vs_lifts(country):
     """
     Show a scatter plot of day ticket prices (in CAD)
     vs number of lifts for all resorts in a given country.
+
+    Param: user country
     """
     resort_data = user_csv.read_csv("resorts", 1)
     resort_stats = user_csv.read_csv("Resort price and features", 1)
@@ -279,7 +200,9 @@ print('''\t\t      _
  .:..\\:..:::....:::;;;;;;::::::::.:::::.\\}.....::%.:. \\ .:::. \\/.%:::.:..\\
 ::::...:::;;:::::;;;;;;;;;;;;;;:::::;;::{:::::::;;;:..  .:;:... ::;;::::..
 ;;;;:::;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;];;;;;;;;;;::::::;;;;:.::;;;;;;;;:..\n''')
+
 print('Welcome to the Ski resort database! This code will allow you to explore ski resorts around the world!')   #welcome message
+
 print('Please note: This data was last updated in 2022, so todays data may differ slightly.')
 
 while True:
@@ -308,30 +231,34 @@ while True:
             numbers_stuff.append(i)
 
         if menu_input in ('average','avg'):
-            avg = average_price(input_country)
+            avg = calcs.average_price(input_country)
             print(f'\nThe average price of a ski resort day ticket in {input_country} is ${avg:.2f} CAD.')
 
         elif menu_input in ('save'):
-            save_resort_list(resort_opt,input_country)
+            datap.save_resort_list(resort_opt,input_country)
 
         elif menu_input in (str(numbers_stuff)):
             print("Looks like you want to select a resort.")
             index = select_resort(resort_opt)
-            print_stats(index)
+            datap.print_stats(index)
 
         elif menu_input in ('histogram', 'hist'):
             hist_prices(input_country)
 
         elif menu_input in ('diff', 'difficulty'):
-            print_max_difficulty(resort_opt, input_country)
-        
+            max_vals = calcs.print_max_difficulty(resort_opt)
+
+            print(f'\nThe best resort for beginners skiers in {input_country} is {max_vals[3]}, having {int(max_vals[0])} beginner runs.\n')
+            print(f'The best resort for intermediate skiers in {input_country} is {max_vals[4]}, having {int(max_vals[1])} intermediate runs.\n')
+            print(f'The best resort for advanced skiers in {input_country} is {max_vals[5]}, having {int(max_vals[2])} advanced runs.\n')
+
         elif menu_input in ('select', 'select resort', 'resort', 'view'):
             index = select_resort(resort_opt)
-            print_stats(index)
+            datap.print_stats(index)
 
         elif menu_input  in ('scatter', 'scatter plot', 'plot', 'scat'):
             scatter_price_vs_lifts(input_country)
-
+            
         elif menu_input == 'leave':
             break
 
@@ -339,7 +266,5 @@ while True:
             print("Invalid input, please try again.")
 
         print('\n================================================================================================================================\n')
-
-    
 
 print('Thank you for using our program.')       #ending message

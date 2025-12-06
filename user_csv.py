@@ -3,8 +3,10 @@ import numpy as np
 def read_csv(file_name, header):
     '''
     Take a CSV file and convert it into a 2D numpy array
-    Inputs: file name, header status(0 to include header, 1 to exclude header)
-    Outputs: numpy array of data
+
+    Param: file name, header status(0 to include header, 1 to exclude header)
+
+    Return: numpy array of data
     '''
 
     header = int(header)            #ensure header is an int value
@@ -40,7 +42,7 @@ def write_csv(file_name, numpy_array, overwrite):       #for overwrite, input 'x
     '''
     Format and write a CSV file from a numpy array
 
-    Inputs: file name, array to be made into a CSV file, overwrite operator, 'x' to maxe new file, 'a' to append
+    Params: file name, array to be made into a CSV file, overwrite operator, 'x' to maxe new file, 'a' to append
 
     Returns: None
     '''
