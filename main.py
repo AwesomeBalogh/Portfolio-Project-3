@@ -94,25 +94,27 @@ def print_resorts_in_country(country):
     return resort_list
 
 def select_resort(resort_list):
-    '''
-    Validates and returns a selected resort and its index number
-
-    param: list or resort name and index number
-
-    Return: list resort index and name
+    '''Validates and returns a selected resort index number.
+    Paramaters: resort_list : list of [resort_name, resort_ID]
+    Return: indexnumber : int, resort ID
     '''
     while True:
-        user_resort = int(input("Input the resort number here: "))
+        user_resort = input("Input the resort number here: ").strip()
 
-        indexnumber = -1
+        if not user_resort.isdigit():
+            print("Please enter a valid number.")
+            continue
 
-        if 0 < user_resort <= len(resort_list):
-            indexnumber = int(resort_list[user_resort-1][1])
+        user_resort = int(user_resort)
+
+        if 1 <= user_resort <= len(resort_list):
+            indexnumber = int(resort_list[user_resort - 1][1])
             print()
-            print(f'You selected {resort_list[user_resort-1][0]}')
+            print(f'You selected {resort_list[user_resort - 1][0]}')
             return indexnumber
         else:
-            print("Invalid Input, please try again")
+            print("Invalid input, please try again.")
+
 
 #===========================================================Visualization Functions===========================================================
 def hist_prices(country):
@@ -154,16 +156,16 @@ def scatter_price_vs_lifts(country):
 
     valid_countries = []            #Valid countrys code copied from above
     for i in range(len(resort_data)):
-        country = resort_data[i][4]
-        if country not in valid_countries:
-            valid_countries.append(country)
+        c = str(resort_data[i][4]).strip().title()
+        if c not in valid_countries:
+            valid_countries.append(c)
     valid_countries.sort()
 
     prices_cad_1 = []       #Fist country data function
     num_lifts_1 = []
 
     for i in range(len(resort_data)):
-        if resort_data[i][4] == country:
+        if str(resort_data[i][4]).strip().title() == country:
             price_eur = float(resort_stats[i][1])
             price_cad = price_eur * 1.63
             lifts = int(resort_stats[i][8])
@@ -210,7 +212,7 @@ def scatter_price_vs_lifts(country):
             num_lifts_2 = []
 
             for i in range(len(resort_data)):
-                if resort_data[i][4] == country2:
+                if str(resort_data[i][4]).strip().title() == country2:
                     price_eur = float(resort_stats[i][1])
                     price_cad = price_eur * 1.63
                     lifts = int(resort_stats[i][8])
