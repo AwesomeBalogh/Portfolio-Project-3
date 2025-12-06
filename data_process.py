@@ -3,8 +3,9 @@ import numpy as np
 import user_csv
 
 def print_stats(indexnumber):
-    '''Print ski resort statistics given resort index number
-    Parameters: Index  (internal)
+    '''
+    Print ski resort statistics given resort index number
+    Param: index number
     Returns: None
     '''
     resort_data = user_csv.read_csv("resorts", 1)      # gets csv of ski resort data
@@ -52,9 +53,12 @@ def print_stats(indexnumber):
 def save_resort_list(user_index, country):
     '''
     Saves list of resorts in a country as a CSV file
+
+    Param: user_index: list of resorts in a selected country
+                country: User selected country
     
-    :param user_index: list of resorts in a selected country
-    :param country: User selected country
+    Return: None
     '''
     filen = input('Enter your File name here: ').strip().title()
     user_csv.write_csv(f'{filen}-{country}', np.array(user_index), 'x')
+    return

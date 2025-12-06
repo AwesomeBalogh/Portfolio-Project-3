@@ -3,20 +3,17 @@ import numpy as np
 import user_csv
 
 def average_price(country):
-    """
+    '''
     Compute the average ski resort day ticket price in CAD.
 
     Converts the price data (column 1) from a list of resorts to floats,
     finds the mean, converts from EUR to CAD, prints a message, and
     returns the average.
 
-    Parameters:
-    Country : str
-        Country name used in the printed output.
-    Returns:
-    float
-        Average price in CAD.
-    """
+    Param: country
+
+    Returns: float(Average price in CAD.)
+    '''
     resort_data = user_csv.read_csv("resorts", 1)      # gets csv of ski resort data
     resort_stats = user_csv.read_csv("Resort price and features", 1)  # gets csv of ski resort stats
     prices_cad = []
@@ -32,11 +29,11 @@ def print_max_difficulty(index_number):
     '''
     Find the resorts that are best suited to diffrent level of skiers based on the number of runs in that skill level
     
-    :param index_number: list of resort name and index number
+    Param: index number
 
-    :return max number beginner resort runs, beginner resort row index,
-            max number intermediate resort runs, intermediate resort row index,
-            max number advanced resort runs, advanced resort row index,
+    Returns: max number beginner resort runs, beginner resort row index,
+             max number intermediate resort runs, intermediate resort row index,
+             max number advanced resort runs, advanced resort row index,
     '''
 
     run_data = user_csv.read_csv('resort runs', 1)

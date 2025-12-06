@@ -94,9 +94,12 @@ def print_resorts_in_country(country):
     return resort_list
 
 def select_resort(resort_list):
-    '''Validates and returns a selected resort index number.
-    Paramaters: resort_list : list of [resort_name, resort_ID]
-    Return: indexnumber : int, resort ID
+    '''
+    Validates and returns a selected resort index number.
+    
+    Param: resort_list : list of [resort_name, resort_ID]
+    
+    Return: indexnumber : int(resort id)
     '''
     while True:
         user_resort = input("Input the resort number here: ").strip()
@@ -118,12 +121,14 @@ def select_resort(resort_list):
 
 #===========================================================Visualization Functions===========================================================
 def hist_prices(country):
-    """
+    '''
     Show a histogram of day ticket prices (in CAD)
     for all resorts in a given country
 
-    Param: user country
-    """
+    Param: user country 
+
+    Return: None
+    '''
     resort_data = user_csv.read_csv("resorts", 1)
     resort_stats = user_csv.read_csv("Resort price and features", 1)
 
@@ -145,11 +150,15 @@ def hist_prices(country):
 
 
 def scatter_price_vs_lifts(country):
-    '''Shows a scatter plot of day ticket prices (in CAD)
+    '''
+    Shows a scatter plot of day ticket prices (in CAD)
     vs number of lifts for all resorts in a given country.
     User can choose a second countrry to overlay
-    on the same plot. DOUBLE PLOT
+    on the same plot. 
+
     Parameters: Country
+    
+    Return: None
     '''
     resort_data = user_csv.read_csv("resorts", 1)
     resort_stats = user_csv.read_csv("Resort price and features", 1)
